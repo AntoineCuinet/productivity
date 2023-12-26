@@ -1,5 +1,5 @@
 <?php require('./assets/pages/db.php'); 
-
+ 
 $title_page = 'Kirsao';
 $description_page = 'Page d\'accueil du site';
 ?>
