@@ -1,0 +1,62 @@
+.section {
+    width: 100%;
+
+    .section-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        text-align: center;
+
+        .titre-page {
+            padding: 130px 0 0 0;
+        }
+
+        p {
+            padding: 30px 10%;
+            text-align: justify;
+
+            @media screen and (max-width: $mq) {
+                font-size: $KS-font-tiny;
+                padding: 20px 10%;
+            }
+
+            a {
+                text-decoration : underline;
+                color: $KS-color-font-dark;
+
+                &:hover {
+                    color: $KS-color-tertiary;
+                }
+            }
+        }
+
+        h3,
+        h4 {
+            text-align: left;
+            padding: 0 0 0 15px;
+            font-weight: bold;
+        }
+        h4 {
+            padding: 0 0 0 30px;
+        }
+
+
+        img {
+            //empêcher séléction d'une image
+            user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        button {
+            text-decoration: node;
+            margin-bottom: 50px;
+
+            &:hover { /*pour le hover*/
+                text-decoration: underline;
+            }
+        }
+    }
+}

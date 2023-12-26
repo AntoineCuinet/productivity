@@ -1,0 +1,23 @@
+{
+  "name": "kirsao",
+  "description": "Site de Productivité",
+  "author": "CUINET Antoine",
+  "version": "1.0.0",
+  "main": "script.js",
+  "license": "ISC",
+  "keywords": [
+    "site, productivité, monk-mode"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run sass\"",
+    "sass": "sass public/assets/sass/style.scss public/style.css --watch",
+    "server": "http-server -o -c-1 -a localhost -p 8080 ./public"
+  },
+  "dependencies": {
+    "sass": "^1.69.5"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "http-server": "^14.1.1"
+  }
+}

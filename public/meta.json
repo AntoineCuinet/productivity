@@ -1,0 +1,10 @@
+{
+  "name": "Kirsao",
+  "description": "Site de Productivité",
+  "author": "CUINET Antoine",
+  "version": "1.0.0",
+  "config": {
+    "lang": "fr",
+    "theme": "light"
+  }
+}

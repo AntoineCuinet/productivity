@@ -1,0 +1,34 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $KS-color-bg;
+    font-family: Arial, Courier, monospace;
+    color: $KS-color-font-dark;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    .contenu {
+        //grow shrink basis
+        flex: 1 0 auto;
+    }
+}
+
+//séléction su text
+::selection {
+    color: $KS-color-white;
+    background: $KS-color-primary;
+}
+::-moz-selection {
+    color: $KS-color-white;
+    background: $KS-color-primary;
+}

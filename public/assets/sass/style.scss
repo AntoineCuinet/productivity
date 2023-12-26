@@ -1,0 +1,11 @@
+//@import 'mixins/transform'; // import des mixins (à faire obligatoirement avant les variables !)
+
+@import 'partiels/variables'; // import des variable, pas besoin de _ ni de l'extention
+@import 'partiels/global';
+@import 'partiels/homePage';
+@import 'partiels/to-top-btn';
+@import 'partiels/footer-index';
+@import 'partiels/navbar';
+
+
+//@import 'extensions/policeSpan'; // à déclarer à la fin du fichier
