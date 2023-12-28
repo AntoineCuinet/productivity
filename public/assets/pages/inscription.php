@@ -5,6 +5,7 @@ if(!empty($_SESSION['user'])) {
     header('Location: dashboard.php');
 }
 
+$title = 'Kirsao';
 $title_page = 'Inscription';
 $description_page = 'Page d\'inscription';
 $firstname = $lastname = $email = $password = "";
@@ -62,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $req->execute();
 
             unset($firstname, $lastname, $email, $password);
-            $succes = 'Votre inscription est validée ! <br> Vous pouvez <a href="login.php">vous connecter</a> !';
+            $succes = 'Ton inscription est validée ! <br> Tu peux <a href="login.php">te connecter</a> !';
         }
     }
 }
@@ -71,73 +72,77 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php include('header.php'); ?>
 
-    <h2><?= $title_page; ?></h2>
+<section class="login-container">
+    <div class="wrapper">
+        <h2 class="login-title"><?= $title_page; ?></h2>
 
-    <?php if(!empty($succes)): ?>
-        <div class="alert alert-succes">
-            <p><?= $succes; ?></p>
+        <?php if(!empty($succes)): ?>
+            <div class="alert alert-succes redirect-lien">
+                <p><?= $succes; ?></p>
+            </div>
+        <?php endif; ?>
+
+        <form method="POST" action="inscription.php" role="inscription" class="form">
+
+            <div class="form-group">
+                <input type="text" id="name" name="firstname" placeholder="" value="<?= $firstname ?? ''; ?>" required>
+                <span>Ton prénom</span>
+                <i class='bx bx-user'></i>
+                <!-- afficher message erreur -->
+                <?php if(!empty($firstnameError)): ?>
+                    <div class="alert alert-danger">
+                        <p><?= $firstnameError; ?></p>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <input type="text" name="lastname" placeholder="" value="<?= $lastname ?? ''; ?>" required>
+                <span>Ton nom</span>
+                <i class='bx bx-user'></i>
+                <!-- afficher message erreur -->
+                <?php if(!empty($lastnameError)): ?>
+                    <div class="alert alert-danger">
+                        <p><?= $lastnameError; ?></p>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <br>
+            
+            <div class="form-group">
+                <input type="email" name="email" placeholder="" value="<?= $email ?? ''; ?>" required>
+                <span>Ton meilleur Email</span>
+                <i class='bx bx-envelope' ></i>
+                <!-- afficher message erreur -->
+                <?php if(!empty($emailError)): ?>
+                    <div class="alert alert-danger">
+                        <p><?= $emailError; ?></p>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <input type="password" name="password" placeholder="" required>
+                <span>Ton meilleur mot de passe</span>
+                <i class='bx bx-lock-alt' ></i>
+                <!-- afficher message erreur -->
+                <?php if(!empty($passwordError)): ?>
+                    <div class="alert alert-danger">
+                        <p><?= $passwordError; ?></p>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <br>
+
+            <input type="submit" value="M'inscrire" name="valider" class="btn btn-login">
+        </form>
+
+        <div class="redirect-lien">
+            <p>Tu as déjà un compte ? <a href="./login.php">Connecte toi !</a></p>
         </div>
-    <?php endif; ?>
 
-    <form method="POST" action="inscription.php" role="inscription">
-
-        <div class="form-group">
-            <label>
-                Votre prénom 
-                <input type="text" name="firstname" placeholder="Ton prénom" value="<?= $firstname ?? ''; ?>" required>
-            </label>
-            <!-- afficher message erreur -->
-            <?php if(!empty($firstnameError)): ?>
-                <div class="alert alert-danger">
-                    <p><?= $firstnameError; ?></p>
-                </div>
-            <?php endif; ?>
-        </div>
-        <br>
-
-        <div class="form-group">
-            <label>
-                Votre nom 
-                <input type="text" name="lastname" placeholder="Ton nom" value="<?= $lastname ?? ''; ?>" required>
-            </label>
-            <!-- afficher message erreur -->
-            <?php if(!empty($lastnameError)): ?>
-                <div class="alert alert-danger">
-                    <p><?= $lastnameError; ?></p>
-                </div>
-            <?php endif; ?>
-        </div>
-        <br>
-        
-        <div class="form-group">
-            <label>
-                Email
-                <input type="email" name="email" placeholder="Ton email" value="<?= $email ?? ''; ?>" required>
-            </label>
-            <!-- afficher message erreur -->
-            <?php if(!empty($emailError)): ?>
-                <div class="alert alert-danger">
-                    <p><?= $emailError; ?></p>
-                </div>
-            <?php endif; ?>
-        </div>
-        <br>
-
-        <div class="form-group">
-            <label>
-                Mot de passe
-                <input type="password" name="password" placeholder="Ton mot de passe" required>
-            </label>
-            <!-- afficher message erreur -->
-            <?php if(!empty($passwordError)): ?>
-                <div class="alert alert-danger">
-                    <p><?= $passwordError; ?></p>
-                </div>
-            <?php endif; ?>
-        </div>
-        <br>
-
-        <input type="submit" value="m'inscrire" name="valider">
-    </form>
-</body>
-</html>
+    </div>
+</section>
+<?php include('./footer.php'); ?>

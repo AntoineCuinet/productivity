@@ -1,0 +1,37 @@
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $KS-color-tertiary;
+    border: 2px solid $KS-color-tertiary;
+    outline: none;
+    text-decoration: none;
+    color: $KS-color-bg;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: $box-shadaw;
+    cursor: pointer;
+    font-size: $KS-font-small;
+    padding: $KS-padding-y $KS-padding-x;
+    min-width: 50px;
+    min-height: 40px;
+    max-width: 220px;
+    height: 40px;
+    padding: 0 20px;
+    transition: 0.3s;
+
+    &:hover {
+        color: $KS-color-tertiary;
+        background: $KS-color-bg;
+    }
+}
+
+.btn-danger {
+    background: $KS-color-danger;
+    border: 2px solid $KS-color-danger;
+
+    &:hover {
+        color: $KS-color-danger;
+        background: $KS-color-bg;
+    }
+}

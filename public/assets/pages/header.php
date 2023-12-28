@@ -7,18 +7,43 @@
     <link rel="shortcut icon" type="image/icon" href="../favicon/favicon.png"/>
     <link rel="meta" type="application/json" href="./meta.json">
     <link href="../../style.css" rel="stylesheet" type="text/css">
-    <title><?= $title_page ?? ''; ?></title>
+    <!-- icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title><?= $title.' - '.$title_page ?? ''; ?></title>
 </head>
 <body>
     <header>
-        <?php if(empty($_SESSION['user'])): ?>
-            <a href="../../index.php">Accueil</a>
-            <a href="./inscription.php">Inscription</a>
-            <a href="./login.php">Connexion</a>
-        <?php else: ?>
-            <a href="../../index.php">Accueil</a>
-            <a href="./dashboard.php">Mon compte</a>
-            <a href="./logout.php">Déconnexion</a>
-        <?php endif; ?>
-        
+        <!-- menu principal -->
+        <nav id="navbar">
+            <div class="first-container">
+                
+                <!-- logo -->
+                <a href="../../index.php" class="nav-icon" aria-label="Visit homepage" aria-current="page">
+                    <img src="../favicon/icon.png" alt="Web site icon">
+                    <span><?= $title; ?></span>
+                </a>
+
+                <!-- hamburger -->
+                <div class="main-navlinks">
+                    <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+
+                <!-- différents liens dns la navigation -->
+                <div class="navlinks-container">
+                    <?php if(empty($_SESSION['user'])): ?>
+                        <a href="../../index.php">Accueil</a>
+                        <a href="./inscription.php">Inscription</a>
+                        <a href="./login.php">Connexion</a>
+                    <?php else: ?>
+                        <a href="../../index.php">Accueil</a>
+                        <a href="./dashboard.php">Mon compte</a>
+                        <a href="./logout.php">Déconnexion</a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </nav>
     </header>

@@ -5,6 +5,7 @@ if(!empty($_SESSION['user'])) {
     header('Location: dashboard.php');
 }
 
+$title = 'Kirsao';
 $title_page = 'Connexion';
 $description_page = 'Page de connexion';
 $email = $password = "";
@@ -56,48 +57,56 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $req->execute();
 
             unset($firstname, $lastname, $email, $password);
-            $succes = 'Votre inscription est validée ! <br> Vous pouvez <a href="login.php">vous connecter</a> !';
+            $succes = 'Ton inscription est validée ! <br> Tu peux <a href="login.php">te connecter</a> !';
         }
     }
 }
 ?>
 
+
 <?php include('header.php'); ?>
 
+<section class="login-container">
+    <div class="wrapper">
+        <h2 class="login-title"><?= $title_page; ?></h2>
 
-    <h2><?= $title_page; ?></h2>
+        <form method="POST" action="login.php" role="inscription" class="form">
+            
+            <div class="form-group">
+                <input type="email" name="email" value="<?= $email ?? ''; ?>" required>
+                <i class='bx bx-envelope' ></i>
+                <span>T'on meilleur Email</span>
 
-    <form method="POST" action="login.php" role="inscription">
-        
-        <div class="form-group">
-            <label>
-                Email
-                <input type="email" name="email" placeholder="Ton email" value="<?= $email ?? ''; ?>" required>
-            </label>
-            <!-- afficher message erreur -->
-            <?php if(!empty($emailError)): ?>
-                <div class="alert alert-danger">
-                    <p><?= $emailError; ?></p>
-                </div>
-            <?php endif; ?>
+                <!-- afficher message erreur -->
+                <?php if(!empty($emailError)): ?>
+                    <div class="alert alert-danger">
+                        <p><?= $emailError; ?></p>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <input type="password" name="password" required>
+                <i class='bx bx-lock-alt' ></i>
+                <span>T'on meilleur mot de passe</span>
+                
+                <!-- afficher message erreur -->
+                <?php if(!empty($passwordError)): ?>
+                    <div class="alert alert-danger">
+                        <p><?= $passwordError; ?></p>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <br>
+
+            <input type="submit" value="Me connecter" name="valider" class="btn btn-login">
+        </form>
+
+        <div class="redirect-lien">
+            <p>Tu n'as pas de compte ? <a href="./inscription.php">Inscrit toi !</a></p>
         </div>
-        <br>
 
-        <div class="form-group">
-            <label>
-                Mot de passe
-                <input type="password" name="password" placeholder="Ton mot de passe" required>
-            </label>
-            <!-- afficher message erreur -->
-            <?php if(!empty($passwordError)): ?>
-                <div class="alert alert-danger">
-                    <p><?= $passwordError; ?></p>
-                </div>
-            <?php endif; ?>
-        </div>
-        <br>
-
-        <input type="submit" value="Se connecter" name="valider">
-    </form>
-</body>
-</html>
+    </div>
+</section>
+<?php include('./footer.php'); ?>

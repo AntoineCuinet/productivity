@@ -7,10 +7,11 @@ if(empty($_SESSION['user'])) {
     header('Location: login.php');
 }
 
+$title = 'Kirsao';
 $title_page = 'Votre espace';
 $description_page = 'Espace personelle';
 $user = $_SESSION['user'];
-$title = 'Salut '.$user->firstname.' !';
+$title_dashboard = 'Salut '.$user->firstname.' !';
 $firstnameError = $lastnameError = $emailError = $photoError = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -107,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             
             $succes = 'Informations mises à jour.';
 
-            $title = 'Salut '.$user->firstname.' !';
+            $title_dashboard = 'Salut '.$user->firstname.' !';
         }
     }
 }
@@ -117,7 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <h2><?= $title_page; ?></h2>
     <br><br>
-    <h4><?= $title; ?></h4>
+    <h4><?= $title_dashboard; ?></h4>
     <br>
 
     <?php if(!empty($succes)): ?>
@@ -197,7 +198,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <br>
     <p><a href="password.php">Modifier mon mot de passe.</a></p>
     <br>
-    <a onclick="return confirm('Confirmer la suppression de votre compte ?');" href="delate.php" class="btn btn-danger delate">Supprimer son compte.</a>
+    <a onclick="return confirm('Confirmer la suppression de votre compte ?');" href="delate.php" class="btn btn-danger delate">Supprimer mon compte.</a>
 
-</body>
-</html>
+<?php include('./footer.php'); ?>

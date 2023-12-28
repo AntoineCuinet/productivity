@@ -6,10 +6,42 @@
         max-width: 1200px;
         margin: auto;
         text-align: center;
+        perspective: 2500px;
 
         .titre-page {
             padding: 130px 0 0 0;
         }
+
+        .h1 {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            transform: translateY(-50px);
+
+            h1 {
+                font-size: 20vw;
+                text-transform: uppercase;
+                font-family:Arial, Helvetica, sans-serif;
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-image: linear-gradient(161deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.001) 100%);
+                color: transparent;
+
+                //empêche la séléction du text
+                user-select: none; /* Propriété standard */
+                -moz-user-select: none; /* Firefox */
+                -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+                -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+
+                @media (min-width: $mq) {
+                      font-size: 150px;
+                      transform: translateY(-20px);
+                  }
+            }
+        }
+        
 
         p {
             padding: 30px 10%;
@@ -48,15 +80,6 @@
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
-        }
-
-        button {
-            text-decoration: node;
-            margin-bottom: 50px;
-
-            &:hover { /*pour le hover*/
-                text-decoration: underline;
-            }
         }
     }
 }

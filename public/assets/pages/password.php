@@ -4,6 +4,7 @@ if(empty($_SESSION['user'])) {
     header('Location: login.php');
 }
 
+$title = 'Kirsao';
 $title_page = 'Changer de mot de passe';
 $description_page = 'Espace personelle';
 $user = $_SESSION['user'];
@@ -39,67 +40,60 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-
 <?php include('header.php'); ?>
 
 
-<h2><?= $title_page; ?></h2>
-<br>
+<section class="login-container">
+    <?php if(!empty($succes)): ?>
+        <div class="alert alert-succes">
+            <p><?= $succes; ?></p>
+        </div>
+    <?php endif; ?>
 
-<?php if(!empty($succes)): ?>
-    <div class="alert alert-succes">
-        <p><?= $succes; ?></p>
-    </div>
-<?php endif; ?>
+    <div class="wrapper">
+        <h2 class="login-title"><?= $title_page; ?></h2>
+        <form method="POST" action="password.php" role="changer mot de passe" class="form">
 
-<form method="POST" action="password.php" role="changer mot de passe">
-
-    <div class="form-group">
-        <label>
-            Mot de passe actuel 
-            <input type="password" name="actual" placeholder="Ton mot de passe actuel" required>
-        </label>
-        <!-- afficher message erreur -->
-        <?php if(!empty($actualError)): ?>
-            <div class="alert alert-danger">
-                <p><?= $actualError; ?></p>
+            <div class="form-group">
+                <input type="password" name="actual" placeholder="" required>
+                <span>Ton mot de passe actuel</span>
+                <!-- afficher message erreur -->
+                <?php if(!empty($actualError)): ?>
+                    <div class="alert alert-danger">
+                        <p><?= $actualError; ?></p>
+                    </div>
+                <?php endif; ?>
             </div>
-        <?php endif; ?>
-    </div>
-    <br>
+            <br>
 
-    <div class="form-group">
-        <label>
-            Nouveau mot de passe 
-            <input type="password" name="password" placeholder="Ton nouveau mot de passe" required>
-        </label>
-        <!-- afficher message erreur -->
-        <?php if(!empty($passwordError)): ?>
-            <div class="alert alert-danger">
-                <p><?= $passwordError; ?></p>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="" required>
+                <span>Ton nouveau mot de passe</span>
+                <!-- afficher message erreur -->
+                <?php if(!empty($passwordError)): ?>
+                    <div class="alert alert-danger">
+                        <p><?= $passwordError; ?></p>
+                    </div>
+                <?php endif; ?>
             </div>
-        <?php endif; ?>
-    </div>
-    <div class="form-group">
-        <label>
-            Confirmer le nouveau mot de passe 
-            <input type="password" name="password_confirmation" placeholder="Confirmer le nouveau mot de passe" required>
-        </label>
-        <!-- afficher message erreur -->
-        <?php if(!empty($password_confirmationError)): ?>
-            <div class="alert alert-danger">
-                <p><?= $password_confirmationError; ?></p>
+            <div class="form-group">
+                <input type="password" name="password_confirmation" placeholder="" required>
+                <span>Confirme ton nouveau mot de passe</span>
+                <!-- afficher message erreur -->
+                <?php if(!empty($password_confirmationError)): ?>
+                    <div class="alert alert-danger">
+                        <p><?= $password_confirmationError; ?></p>
+                    </div>
+                <?php endif; ?>
             </div>
-        <?php endif; ?>
+            <br>
+
+            <input type="submit" value="Changer" name="valider" class="btn btn-login">
+        </form>
+
+        <div class="redirect-lien">
+            <p><a href="dashboard.php">Revenir sur mon compte</a></p>
+        </div>
     </div>
-    <br>
-
-    <input type="submit" value="Changer" name="valider">
-</form>
-<br>
-<br>
-
-<p><a href="dashboard.php">Revenir sur mon compte</a></p>
-
-</body>
-</html>
+</section>
+<?php include('./footer.php'); ?>

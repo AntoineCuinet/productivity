@@ -5,8 +5,8 @@
 // $KS-color-darkgreen: #1b4243;
 // $KS-color-lightgreen: #5c8374;
 // $KS-color-lightblue: #9fc8b9;
-$KS-color-black: #000;
-$KS-color-white: #fff;
+$KS-color-black: #011223;
+$KS-color-white: #FFFFF0;
 $KS-color-bg: #092635;
 $KS-color-primary: #1b4243;
 $KS-color-secondary: #5c8374;
@@ -14,6 +14,8 @@ $KS-color-tertiary: #9fc8b9;
 $KS-color-hamburger: #1b4243ed;
 $KS-color-font-light: #333;
 $KS-color-font-dark: #c0c0c0;
+$KS-color-danger: #a03e3e;
+$KS-color-succes: #5c8374;
 
 /* FONT-SIZE */
 $KS-font-huge: 35px;
@@ -26,14 +28,14 @@ $KS-font-logo-media: 24px;
 $KS-line-height: 1.6;
 
 /* PADDING/MARGIN */
-$KS-padding-y: 20px;
-$KS-padding-x: 25px;
+$KS-padding-y: 10px;
+$KS-padding-x: 15px;
 $KS-margin-y: 25px;
 $KS-margin-x: 25px;
 
 
 $taille: 15px;
-$box-shadaw: 0 2px 6px rgba(0, 0, 0, 0.32);
+$box-shadaw: 0 2px 8px #01122380;
 //media query (max-width)
 $max-width: 1200px;
 $mq: 800px;

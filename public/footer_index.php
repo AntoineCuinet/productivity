@@ -5,7 +5,7 @@
 
 
     <!-- footer -->
-    <footer>
+    <footer class="footer-index">
         <div class="contenu-footer">
             <div class="bloc footer-info">
                 <h3>Informations</h3>
