@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include('header.php'); ?>
 
 
-    <h2><?php $title_page; ?></h2>
+    <h2><?= $title_page; ?></h2>
 
     <form method="POST" action="login.php" role="inscription">
         
