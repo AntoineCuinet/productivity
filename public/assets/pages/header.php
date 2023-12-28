@@ -42,6 +42,9 @@
                         <a href="../../index.php">Accueil</a>
                         <a href="./dashboard.php">Mon compte</a>
                         <a href="./logout.php">Déconnexion</a>
+                        <!-- <a class="picture">
+                            <img src="photos/<//?= $user->id.'/'.$user->file; ?>" alt="photo de profil">
+                        </a> -->
                     <?php endif; ?>
                 </div>
             </div>
