@@ -1,4 +1,6 @@
 .login-container {
+    // position: relative;
+    // z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,6 +9,12 @@
     min-width: 100vw;
     max-height: 100vh;
     max-width: 100vw;
+    background-color: red;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('./bglog.png');
+
 
     .wrapper {
         width: 50%;
