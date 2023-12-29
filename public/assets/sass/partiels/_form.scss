@@ -1,19 +1,22 @@
 .login-container {
-    // position: relative;
-    // z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    // min-height: 100vh;
-    // min-width: 100vw;
-    // max-height: 100vh;
-    // max-width: 100vw;
-    background-color: red;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url('./bglog.png');
+    min-height: 100vh;
+    min-width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+
+    img {
+        position: absolute;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        filter: brightness(70%);
+    }
 
 
     .wrapper {
@@ -27,75 +30,142 @@
         border-radius: 10px;
         padding: 15px 30px;
 
-        .login-title {
-            font-size: 36px;
-            text-align: center;
-            color: $KS-color-tertiary;
+        @media screen and (max-width: $mq) {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+        @media screen and (max-height: $mh) {
+            width: 100vw;
+            height: 100vh;
+            border: none;
         }
 
-        .form {
-            padding-top: 20px;
-            text-align: center;
-
-            //media à mq à faire 
-            
-            
-            .form-group {
-                position: relative;
-                z-index: 0;
-                padding-top: 20px;
-                font-family: "Source Code Pro";
-                font-size: 22px;
-                width: 350px;
-                text-align: center;
+        .wrapper-contain {
+            @media screen and (max-width: $mq) {
+                position: absolute;
+                top: 50%;
                 left: 50%;
-                transform: translateX(-53%);
-
-                input {
-                    width: 100%;
-                    padding: 7px;
-                    border: 1px solid $KS-color-tertiary;
-                    background: transparent;
-                    border-radius: 5px;
-                    outline: none;
-                    font-size: 1em;
-                    color: $KS-color-tertiary;
-        
-                    &:valid ~ span,
-                    &:focus ~ span {
-                        transform: translateX(15px) translateY(-10px);
-                        font-size: 0.65em;
-                        padding: 0 10px;
-                        background: $KS-color-tertiary;
-                        color: $KS-color-primary;
-                        border-radius: 4px;
-                        letter-spacing: 1px;
-                    }
-                }
-                i {
-                    position: absolute;
-                    right: -30px;
-                    transform: translateY(35%);
-                    font-size: 25px;
-                    color: $KS-color-tertiary;
-                }
-        
-                span {
-                    position: absolute;
-                    left: 0;
-                    padding: 8px;
-                    pointer-events: none;
-                    font-size: 1em;
-                    color: $KS-color-tertiary;
-                    // text-transform: uppercase;
-                    transition: 0.5s;
-                }
-
+                transform: translate(-50%, -50%);
             }
+            @media screen and (max-height: $mh) {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }      
 
-            .btn-login {
-                display: inline-block;
-                margin: 20px 0 0 0;
+            .login-title {
+                font-size: 36px;
+                text-align: center;
+                color: $KS-color-tertiary;
+                @media screen and (max-width: $mq) {
+                    font-size: $KS-font-normal;
+                }
+                @media screen and (max-height: $mh) {
+                    font-size: $KS-font-normal;
+                }
+            }
+    
+            .form {
+                padding-top: 20px;
+                text-align: center;
+                @media screen and (max-width: $mq) {
+                    padding-top: 15px;
+                }
+                @media screen and (max-height: $mh) {
+                    padding-top: 15px;
+                }
+                
+                
+                .form-group {
+                    position: relative;
+                    z-index: 0;
+                    padding-top: 20px;
+                    font-family: "Source Code Pro";
+                    font-size: 22px;
+                    width: 350px;
+                    text-align: center;
+                    left: 50%;
+                    transform: translateX(-53%);
+                    @media screen and (max-width: $mq) {
+                        padding-top: 5px;
+                        font-size: $KS-font-small;
+                        width: 250px;
+                    }
+                    @media screen and (max-height: $mh) {
+                        padding-top: 5px;
+                        font-size: $KS-font-small;
+                        width: 250px;
+                    }
+    
+                    input {
+                        width: 100%;
+                        padding: 7px;
+                        border: 1px solid $KS-color-tertiary;
+                        background: transparent;
+                        border-radius: 5px;
+                        outline: none;
+                        font-size: 1em;
+                        color: $KS-color-tertiary;
+            
+                        &:valid ~ span,
+                        &:focus ~ span {
+                            transform: translateX(15px) translateY(-10px);
+                            font-size: 0.65em;
+                            padding: 0 10px;
+                            background: $KS-color-tertiary;
+                            color: $KS-color-primary;
+                            border-radius: 4px;
+                            letter-spacing: 1px;
+    
+                            @media screen and (max-width: $mq) {
+                                transform: translateX(15px) translateY(-7px);
+                            }
+                            @media screen and (max-height: $mh) {
+                                transform: translateX(15px) translateY(-7px);
+                            }
+                        }
+                    }
+                    i {
+                        position: absolute;
+                        right: -30px;
+                        transform: translateY(35%);
+                        font-size: 25px;
+                        color: $KS-color-tertiary;
+    
+                        @media screen and (max-width: $mq) {
+                            transform: translateY(20%);
+                        }
+                        @media screen and (max-height: $mh) {
+                            transform: translateY(20%);
+                        }
+                    }
+            
+                    span {
+                        position: absolute;
+                        left: 0;
+                        padding: 8px;
+                        pointer-events: none;
+                        font-size: 1em;
+                        color: $KS-color-tertiary;
+                        // text-transform: uppercase;
+                        transition: 0.5s;
+    
+                        @media screen and (max-width: $mq) {
+                            padding: 7px;
+                        }
+                        @media screen and (max-height: $mh) {
+                            padding: 7px;
+                        }
+                    }
+    
+                }
+    
+                .btn-login {
+                    display: inline-block;
+                    margin: 20px 0 0 0;
+                }
             }
         }
     }
@@ -108,7 +178,6 @@
 
         @media screen and (max-width: $mq) {
             font-size: $KS-font-tiny;
-            padding: 20px 10%;
         }
 
         a {

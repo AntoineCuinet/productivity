@@ -391,11 +391,19 @@ body .contenu {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  background-color: red;
+  min-height: 100vh;
+  min-width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
+}
+.login-container img {
+  position: absolute;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-image: url("./bglog.png");
+  width: 100%;
+  height: 100%;
+  filter: brightness(70%);
 }
 .login-container .wrapper {
   width: 50%;
@@ -408,16 +416,66 @@ body .contenu {
   border-radius: 10px;
   padding: 15px 30px;
 }
-.login-container .wrapper .login-title {
+@media screen and (max-width: 800px) {
+  .login-container .wrapper {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+  }
+}
+@media screen and (max-height: 700px) {
+  .login-container .wrapper {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  .login-container .wrapper .wrapper-contain {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media screen and (max-height: 700px) {
+  .login-container .wrapper .wrapper-contain {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.login-container .wrapper .wrapper-contain .login-title {
   font-size: 36px;
   text-align: center;
   color: #9fc8b9;
 }
-.login-container .wrapper .form {
+@media screen and (max-width: 800px) {
+  .login-container .wrapper .wrapper-contain .login-title {
+    font-size: 19px;
+  }
+}
+@media screen and (max-height: 700px) {
+  .login-container .wrapper .wrapper-contain .login-title {
+    font-size: 19px;
+  }
+}
+.login-container .wrapper .wrapper-contain .form {
   padding-top: 20px;
   text-align: center;
 }
-.login-container .wrapper .form .form-group {
+@media screen and (max-width: 800px) {
+  .login-container .wrapper .wrapper-contain .form {
+    padding-top: 15px;
+  }
+}
+@media screen and (max-height: 700px) {
+  .login-container .wrapper .wrapper-contain .form {
+    padding-top: 15px;
+  }
+}
+.login-container .wrapper .wrapper-contain .form .form-group {
   position: relative;
   z-index: 0;
   padding-top: 20px;
@@ -428,7 +486,21 @@ body .contenu {
   left: 50%;
   transform: translateX(-53%);
 }
-.login-container .wrapper .form .form-group input {
+@media screen and (max-width: 800px) {
+  .login-container .wrapper .wrapper-contain .form .form-group {
+    padding-top: 5px;
+    font-size: 15px;
+    width: 250px;
+  }
+}
+@media screen and (max-height: 700px) {
+  .login-container .wrapper .wrapper-contain .form .form-group {
+    padding-top: 5px;
+    font-size: 15px;
+    width: 250px;
+  }
+}
+.login-container .wrapper .wrapper-contain .form .form-group input {
   width: 100%;
   padding: 7px;
   border: 1px solid #9fc8b9;
@@ -438,7 +510,7 @@ body .contenu {
   font-size: 1em;
   color: #9fc8b9;
 }
-.login-container .wrapper .form .form-group input:valid ~ span, .login-container .wrapper .form .form-group input:focus ~ span {
+.login-container .wrapper .wrapper-contain .form .form-group input:valid ~ span, .login-container .wrapper .wrapper-contain .form .form-group input:focus ~ span {
   transform: translateX(15px) translateY(-10px);
   font-size: 0.65em;
   padding: 0 10px;
@@ -447,14 +519,34 @@ body .contenu {
   border-radius: 4px;
   letter-spacing: 1px;
 }
-.login-container .wrapper .form .form-group i {
+@media screen and (max-width: 800px) {
+  .login-container .wrapper .wrapper-contain .form .form-group input:valid ~ span, .login-container .wrapper .wrapper-contain .form .form-group input:focus ~ span {
+    transform: translateX(15px) translateY(-7px);
+  }
+}
+@media screen and (max-height: 700px) {
+  .login-container .wrapper .wrapper-contain .form .form-group input:valid ~ span, .login-container .wrapper .wrapper-contain .form .form-group input:focus ~ span {
+    transform: translateX(15px) translateY(-7px);
+  }
+}
+.login-container .wrapper .wrapper-contain .form .form-group i {
   position: absolute;
   right: -30px;
   transform: translateY(35%);
   font-size: 25px;
   color: #9fc8b9;
 }
-.login-container .wrapper .form .form-group span {
+@media screen and (max-width: 800px) {
+  .login-container .wrapper .wrapper-contain .form .form-group i {
+    transform: translateY(20%);
+  }
+}
+@media screen and (max-height: 700px) {
+  .login-container .wrapper .wrapper-contain .form .form-group i {
+    transform: translateY(20%);
+  }
+}
+.login-container .wrapper .wrapper-contain .form .form-group span {
   position: absolute;
   left: 0;
   padding: 8px;
@@ -463,7 +555,17 @@ body .contenu {
   color: #9fc8b9;
   transition: 0.5s;
 }
-.login-container .wrapper .form .btn-login {
+@media screen and (max-width: 800px) {
+  .login-container .wrapper .wrapper-contain .form .form-group span {
+    padding: 7px;
+  }
+}
+@media screen and (max-height: 700px) {
+  .login-container .wrapper .wrapper-contain .form .form-group span {
+    padding: 7px;
+  }
+}
+.login-container .wrapper .wrapper-contain .form .btn-login {
   display: inline-block;
   margin: 20px 0 0 0;
 }
@@ -476,7 +578,6 @@ body .contenu {
 @media screen and (max-width: 800px) {
   .login-container .redirect-lien {
     font-size: 12px;
-    padding: 20px 10%;
   }
 }
 .login-container .redirect-lien a {

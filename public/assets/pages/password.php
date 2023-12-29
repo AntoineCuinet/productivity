@@ -51,48 +51,50 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <div class="wrapper">
-        <h2 class="login-title"><?= $title_page; ?></h2>
-        <form method="POST" action="password.php" role="changer mot de passe" class="form">
+        <div class="wrapper-contain">
+            <h2 class="login-title"><?= $title_page; ?></h2>
+            <form method="POST" action="password.php" role="changer mot de passe" class="form">
 
-            <div class="form-group">
-                <input type="password" name="actual" placeholder="" required>
-                <span>Ton mot de passe actuel</span>
-                <!-- afficher message erreur -->
-                <?php if(!empty($actualError)): ?>
-                    <div class="alert alert-danger">
-                        <p><?= $actualError; ?></p>
-                    </div>
-                <?php endif; ?>
+                <div class="form-group">
+                    <input type="password" name="actual" placeholder="" required>
+                    <span>Ton mot de passe actuel</span>
+                    <!-- afficher message erreur -->
+                    <?php if(!empty($actualError)): ?>
+                        <div class="alert alert-danger">
+                            <p><?= $actualError; ?></p>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="" required>
+                    <span>Ton nouveau mot de passe</span>
+                    <!-- afficher message erreur -->
+                    <?php if(!empty($passwordError)): ?>
+                        <div class="alert alert-danger">
+                            <p><?= $passwordError; ?></p>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password_confirmation" placeholder="" required>
+                    <span>Confirme ton nouveau mot de passe</span>
+                    <!-- afficher message erreur -->
+                    <?php if(!empty($password_confirmationError)): ?>
+                        <div class="alert alert-danger">
+                            <p><?= $password_confirmationError; ?></p>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <br>
+
+                <input type="submit" value="Changer" name="valider" class="btn btn-login">
+            </form>
+
+            <div class="redirect-lien">
+                <p><a href="dashboard.php">Revenir sur mon compte</a></p>
             </div>
-            <br>
-
-            <div class="form-group">
-                <input type="password" name="password" placeholder="" required>
-                <span>Ton nouveau mot de passe</span>
-                <!-- afficher message erreur -->
-                <?php if(!empty($passwordError)): ?>
-                    <div class="alert alert-danger">
-                        <p><?= $passwordError; ?></p>
-                    </div>
-                <?php endif; ?>
-            </div>
-            <div class="form-group">
-                <input type="password" name="password_confirmation" placeholder="" required>
-                <span>Confirme ton nouveau mot de passe</span>
-                <!-- afficher message erreur -->
-                <?php if(!empty($password_confirmationError)): ?>
-                    <div class="alert alert-danger">
-                        <p><?= $password_confirmationError; ?></p>
-                    </div>
-                <?php endif; ?>
-            </div>
-            <br>
-
-            <input type="submit" value="Changer" name="valider" class="btn btn-login">
-        </form>
-
-        <div class="redirect-lien">
-            <p><a href="dashboard.php">Revenir sur mon compte</a></p>
         </div>
     </div>
 </section>
