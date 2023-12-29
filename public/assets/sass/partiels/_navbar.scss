@@ -2,15 +2,21 @@
     position: fixed;
     z-index: 1;
     width: 100%;
-    padding: 15px 35px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: $box-shadaw;
+    padding: 25px 35px;
+    transition: 0.6s;
 
     @media screen and (max-width: $mq) {
         padding: 7px 15px;
         position: fixed;
         top: 0;
+    }
+
+    &.sticky {
+        padding: 15px 35px;
+        background: #01122391;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: $box-shadaw;
     }
 
     //permet de mettre la max-width

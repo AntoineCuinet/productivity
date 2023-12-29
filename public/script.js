@@ -28,8 +28,11 @@ new ResizeObserver(entries => { //gérer la transition du menu hamburger
 
 
 //bouton du sroll vers le haut du site
+const header = document.querySelector('#navbar');
 const toTopBtn = document.querySelector(".to-top-btn");
 window.addEventListener("scroll", () => {
+    header.classList.toggle("sticky", window.scrollY > 0);
+
     if(document.documentElement.scrollTop > window.innerHeight * 0.7)
         toTopBtn.classList.add("active");
     else 
