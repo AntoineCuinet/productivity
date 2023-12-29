@@ -391,10 +391,6 @@ body .contenu {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  min-height: 100vh;
-  min-width: 100vw;
-  max-height: 100vh;
-  max-width: 100vw;
   background-color: red;
   background-repeat: no-repeat;
   background-position: center;
