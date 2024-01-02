@@ -12,7 +12,7 @@ $title = 'Kirsao';
 $title_page = 'Paramètres';
 $description_page = 'Paramètres';
 $user = $_SESSION['user'];
-$title_dashboard = 'Salut '.$user->firstname.' !';
+$title_dashboard = $user->firstname.' que veut-tu modifier ?';
 $firstnameError = $lastnameError = $emailError = $photoError = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -109,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             
             $succes = 'Informations mises à jour.';
 
-            $title_dashboard = 'Salut '.$user->firstname.' !';
+            $title_dashboard = $user->firstname.' que veut-tu modifier ?';
         }
     }
 }
@@ -140,10 +140,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <form method="POST" action="settings.php" role="modification" enctype="multipart/form-data" class="form">
 
                 <div class="form-group">
-                    <label>
-                        Votre photo de profil
-                        <input type="file" name="file" value="">
-                    </label>
+                    <input type="file" name="file" value="" style="cursor: pointer;">
+                    <i class='bx bx-image-add'></i>
+                    <span>Votre photo de profil</span>
                     <!-- afficher message erreur -->
                     <?php if(!empty($photoError)): ?>
                         <div class="alert alert-danger">
@@ -154,10 +153,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br>
 
                 <div class="form-group">
-                    <label>
-                        Votre prénom 
-                        <input type="text" name="firstname" placeholder="Ton prénom" value="<?= $firstname ?? $user->firstname; ?>" required>
-                    </label>
+                    <input type="text" name="firstname" placeholder="Ton prénom" value="<?= $firstname ?? $user->firstname; ?>" required>
+                    <i class='bx bx-user'></i>
+                    <span>Votre prénom</span>
                     <!-- afficher message erreur -->
                     <?php if(!empty($firstnameError)): ?>
                         <div class="alert alert-danger">
@@ -168,10 +166,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br>
 
                 <div class="form-group">
-                    <label>
-                        Votre nom 
-                        <input type="text" name="lastname" placeholder="Ton nom" value="<?= $lastname ?? $user->lastname; ?>" required>
-                    </label>
+                    <input type="text" name="lastname" placeholder="Ton nom" value="<?= $lastname ?? $user->lastname; ?>" required>
+                    <i class='bx bx-user'></i>
+                    <span>Votre nom</span>
                     <!-- afficher message erreur -->
                     <?php if(!empty($lastnameError)): ?>
                         <div class="alert alert-danger">
@@ -182,10 +179,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br>
                 
                 <div class="form-group">
-                    <label>
-                        Email
-                        <input type="email" name="email" placeholder="Ton email" value="<?= $email ?? $user->email; ?>" required>
-                    </label>
+                    <input type="email" name="email" placeholder="Ton email" value="<?= $email ?? $user->email; ?>" required>
+                    <i class='bx bx-envelope' ></i>
+                    <span>Ton email</span>
                     <!-- afficher message erreur -->
                     <?php if(!empty($emailError)): ?>
                         <div class="alert alert-danger">

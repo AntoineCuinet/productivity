@@ -19,14 +19,10 @@ $firstnameError = $lastnameError = $emailError = $photoError = "";
 
 <?php include('header.php'); ?>
 
-    <h2><?= $title_page; ?></h2>
-    <br><br>
+<div class="dashboard-container">
     <h4><?= $title_dashboard; ?></h4>
     <br>
-
-
-
-
-    <a href="./settings.php" class="btn btn-danger delate">Paramètres</a>
+</div>
+    
 
 <?php include('./footer.php'); ?>

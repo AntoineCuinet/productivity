@@ -55,11 +55,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $emailError = 'Un utilisateur est déjà enregistré avec cet Email.';
         }
 
+        // $filename = "./icon-user.png";
+
         if(empty($firstnameError) && empty($lastnameError) && empty($emailError) && empty($passwordError)) {
             $req = $db->prepare('INSERT INTO users (firstname, lastname, email, password, created_at) VALUES (:firstname, :lastname, :email, :password, NOW())');
             $req->bindValue(':firstname', $firstname, PDO::PARAM_STR);
             $req->bindValue(':lastname', $lastname, PDO::PARAM_STR);
             $req->bindValue(':email', $email, PDO::PARAM_STR);
+            // $req->bindValue(':file', $filename, PDO::PARAM_STR); // Utilisez le chemin de l'image par défaut
             $req->bindValue(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
             $req->execute();
 

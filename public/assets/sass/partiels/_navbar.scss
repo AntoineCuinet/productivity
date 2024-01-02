@@ -211,6 +211,10 @@
                     height: $img-logo;
                     border-radius: 50%;
                 }
+
+                &:hover::after {
+                    transform: scaleX(0);
+                }
             }
 
             .param-unpicture {

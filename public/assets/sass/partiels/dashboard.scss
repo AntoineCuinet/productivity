@@ -1,0 +1,19 @@
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    height: auto;
+    min-height: 100vh;
+    padding-top: 150px;
+
+    @media screen and (max-width: $mq) {
+        padding-top: 100px;
+    }
+
+    h4 {
+        padding-left: 5%;
+    }
+
+
+
+}

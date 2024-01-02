@@ -39,7 +39,7 @@
                         <a href="./inscription.php">Inscription</a>
                         <a href="./login.php">Connexion</a>
                     <?php else: ?>
-                        <a href="../../index.php">Accueil</a>
+                        <!-- <a href="../../index.php">Accueil</a> -->
                         <a href="./dashboard.php">Mon espace</a>
                         <a class="param" href="./settings.php">Paramètres</a>
 

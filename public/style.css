@@ -420,6 +420,9 @@ body .contenu {
   height: 40px;
   border-radius: 50%;
 }
+#navbar .first-container .navlinks-container .picture:hover::after {
+  transform: scaleX(0);
+}
 @media screen and (max-width: 800px) {
   #navbar .first-container .navlinks-container .param-unpicture {
     display: none;
@@ -808,6 +811,23 @@ body .contenu {
 }
 .redirect-lien a:hover {
   color: #9fc8b9;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  height: auto;
+  min-height: 100vh;
+  padding-top: 150px;
+}
+@media screen and (max-width: 800px) {
+  .dashboard-container {
+    padding-top: 100px;
+  }
+}
+.dashboard-container h4 {
+  padding-left: 5%;
 }
 
 /*# sourceMappingURL=style.css.map */
