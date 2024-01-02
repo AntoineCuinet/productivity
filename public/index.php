@@ -79,28 +79,28 @@ $description_page = 'Page d\'accueil du site';
             <div class="section-container">
                 <ul class="accordion">
                     <li>
-                        <input type="radio" name="accordion" id="first" checked>
+                        <input type="radio" name="accordion" value="" id="first" checked>
                         <label for="first">C'est payant ?</label>
                         <div class="content-accordion">
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui, natus totam autem neque error incidunt deserunt unde ea quibusdam quidem dolor nesciunt nihil aut ad quia nostrum fugiat. Tempore, ab.</p>
                         </div>
                     </li>
                     <li>
-                        <input type="radio" name="accordion" id="second">
+                        <input type="radio" name="accordion" value="" id="second">
                         <label for="second">C'est vraiment fait pour moi ?</label>
                         <div class="content-accordion">
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui, natus totam autem neque error incidunt deserunt unde ea quibusdam quidem dolor nesciunt nihil aut ad quia nostrum fugiat. Tempore, ab.</p>
                         </div>
                     </li>
                     <li>
-                        <input type="radio" name="accordion" id="third">
+                        <input type="radio" name="accordion" value="" id="third">
                         <label for="third">Comment ça fonctionne ?</label>
                         <div class="content-accordion">
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui, natus totam autem neque error incidunt deserunt unde ea quibusdam quidem dolor nesciunt nihil aut ad quia nostrum fugiat. Tempore, ab.</p>
                         </div>
                     </li>
                     <li>
-                        <input type="radio" name="accordion" id="fourth">
+                        <input type="radio" name="accordion" value="" id="fourth">
                         <label for="fourth">Je peux tout traquer ?</label>
                         <div class="content-accordion">
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui, natus totam autem neque error incidunt deserunt unde ea quibusdam quidem dolor nesciunt nihil aut ad quia nostrum fugiat. Tempore, ab.</p>

@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <form method="POST" action="password.php" role="changer mot de passe" class="form">
 
                 <div class="form-group">
-                    <input type="password" name="actual" placeholder="" required>
+                    <input type="password" name="actual" placeholder="" value="" required>
                     <span>Ton mot de passe actuel</span>
                     <!-- afficher message erreur -->
                     <?php if(!empty($actualError)): ?>
@@ -68,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br>
 
                 <div class="form-group">
-                    <input type="password" name="password" placeholder="" required>
+                    <input type="password" name="password" placeholder="" value="" required>
                     <span>Ton nouveau mot de passe</span>
                     <!-- afficher message erreur -->
                     <?php if(!empty($passwordError)): ?>
@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password_confirmation" placeholder="" required>
+                    <input type="password" name="password_confirmation" placeholder="" value="" required>
                     <span>Confirme ton nouveau mot de passe</span>
                     <!-- afficher message erreur -->
                     <?php if(!empty($password_confirmationError)): ?>

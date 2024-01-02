@@ -99,7 +99,7 @@ $detect = new Mobile_Detect();
                 <br>
 
                 <div class="form-group">
-                    <input type="password" name="password" required>
+                    <input type="password" name="password" value="" required>
                     <i class='bx bx-lock-alt' ></i>
                     <span>T'on meilleur mot de passe</span>
                     
