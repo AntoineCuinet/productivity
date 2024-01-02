@@ -154,6 +154,7 @@
                 color: $KS-color-secondary;
                 display: inline-block;
                 position: relative;
+                cursor: pointer;
 
                 @media screen and (max-width: $mq) {
                     font-size: $KS-font-large;
@@ -191,20 +192,32 @@
                     transform: scaleX(1);
                 }
             }  
+            .param {
+                display: none;
+                @media screen and (max-width: $mq) {
+                    display: inline-block;
+                }
+            }
+            .picture {
+                @media screen and (max-width: $mq) {
+                    display: none;
+                }
 
-            // .picture {
-            //     margin: 10 10px;
-            //     transform: translateY(4px);
-            //     display: inline-block;
-            //     position: relative;
-            //     text-decoration: none;
-            //     // margin-right: 20px;
-            //     img {
-            //         width: $img-logo;
-            //         height: $img-logo;
-            //         border-radius: 50%;
-            //     }
-            // }
+                transform: translateY(0px);
+                margin-left: 20px;
+
+                img {
+                    width: $img-logo;
+                    height: $img-logo;
+                    border-radius: 50%;
+                }
+            }
+
+            .param-unpicture {
+                @media screen and (max-width: $mq) {
+                    display: none;
+                }
+            }
         }
     }
 }

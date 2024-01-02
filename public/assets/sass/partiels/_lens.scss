@@ -1,0 +1,19 @@
+.redirect-lien {
+    margin: 10px 0 -15px 0;
+    padding: 10px 10px;
+    text-align: justify;
+    font-size: $KS-font-small;
+
+    @media screen and (max-width: $mq) {
+        font-size: $KS-font-tiny;
+    }
+
+    a {
+        text-decoration : underline;
+        color: $KS-color-font-dark;
+
+        &:hover {
+            color: $KS-color-tertiary;
+        }
+    }
+}

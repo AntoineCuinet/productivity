@@ -2,6 +2,7 @@
 
 if(empty($_SESSION['user'])) {
     header('Location: login.php');
+    exit();
 }
 
 $title = 'Kirsao';
@@ -44,17 +45,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <section class="login-container">
-    <?php if(!empty($succes)): ?>
-        <div class="alert alert-succes">
-            <p><?= $succes; ?></p>
-        </div>
-    <?php endif; ?>
+    
 
     <div class="wrapper">
         <div class="wrapper-contain">
             <h2 class="login-title"><?= $title_page; ?></h2>
+
             <form method="POST" action="password.php" role="changer mot de passe" class="form">
 
+                <?php if(!empty($succes)): ?>
+                    <div class="alert alert-succes">
+                        <p><?= $succes; ?></p>
+                    </div>
+                <?php endif; ?>
+                
                 <div class="form-group">
                     <input type="password" name="actual" placeholder="" value="" required>
                     <span>Ton mot de passe actuel</span>
@@ -93,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
 
             <div class="redirect-lien">
-                <p><a href="dashboard.php">Revenir sur mon compte</a></p>
+                <p><a href="./settings.php">Revenir sur mes paramètres</a></p>
             </div>
         </div>
     </div>

@@ -35,3 +35,13 @@
         background: $KS-color-bg;
     }
 }
+
+.btn-succes {
+    background: $KS-color-succes;
+    border: 2px solid $KS-color-succes;
+
+    &:hover {
+        color: $KS-color-succes;
+        background: $KS-color-bg;
+    }
+}

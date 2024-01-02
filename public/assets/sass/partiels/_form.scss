@@ -18,6 +18,18 @@
         filter: brightness(70%);
     }
 
+    .user-picture {
+        position: relative;
+        right: 0;
+        height: 50px;
+        width: 50px;
+
+        img {
+            filter: brightness(100%);
+            border-radius: 10px;
+        }
+    }
+
 
     .wrapper {
         width: 50%;
@@ -170,24 +182,20 @@
         }
     }
 
-    .redirect-lien {
-        margin: 10px 0 -15px 0;
-        padding: 10px 10px;
-        text-align: justify;
-        font-size: $KS-font-small;
-
-        @media screen and (max-width: $mq) {
-            font-size: $KS-font-tiny;
-        }
-
-        a {
-            text-decoration : underline;
-            color: $KS-color-font-dark;
-
-            &:hover {
-                color: $KS-color-tertiary;
-            }
-        }
+    .wrapper-setting {
+        width: 90%;
+        max-width: 1200px;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 100px 30px;
     }
 }
 
+.setting {
+    max-height: auto;
+    margin-top: 200px;
+    @media screen and (max-width: $mq) {
+        margin-top: 50px;
+    }
+}

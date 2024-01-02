@@ -28,6 +28,7 @@
                 -webkit-text-fill-color: transparent;
                 background-image: linear-gradient(161deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.001) 100%);
                 color: transparent;
+                letter-spacing: 10px;
 
                 //empêche la séléction du text
                 user-select: none; /* Propriété standard */
@@ -60,6 +61,13 @@
                     color: $KS-color-tertiary;
                 }
             }
+        }
+
+        h2 {
+            position: relative;
+            z-index: 1;
+            letter-spacing: 3px;
+            font-size: $KS-font-huge;
         }
 
         h3,

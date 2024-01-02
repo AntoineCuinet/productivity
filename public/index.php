@@ -44,7 +44,7 @@ $description_page = 'Page d\'accueil du site';
                         <a href="./assets/pages/login.php">Connexion</a>
                     <?php else: ?>
                         <a href="./index.php">Accueil</a>
-                        <a href="./assets/pages/dashboard.php">Mon compte</a>
+                        <a href="./assets/pages/dashboard.php">Mon espace</a>
                         <a href="./assets/pages/logout.php">Déconnexion</a>
                     <?php endif; ?>
                 </div>
@@ -79,7 +79,7 @@ $description_page = 'Page d\'accueil du site';
             <div class="section-container">
                 <ul class="accordion">
                     <li>
-                        <input type="radio" name="accordion" value="" id="first" checked>
+                        <input type="radio" name="accordion" value="" id="first" >
                         <label for="first">C'est payant ?</label>
                         <div class="content-accordion">
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui, natus totam autem neque error incidunt deserunt unde ea quibusdam quidem dolor nesciunt nihil aut ad quia nostrum fugiat. Tempore, ab.</p>

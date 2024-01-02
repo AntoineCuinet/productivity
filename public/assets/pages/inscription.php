@@ -3,6 +3,7 @@
 //permet de rediriger direct sur le dashbord si déjà connecter auparavant
 if(!empty($_SESSION['user'])) {
     header('Location: dashboard.php');
+    exit();
 }
 
 $title = 'Kirsao';
