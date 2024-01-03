@@ -2,6 +2,7 @@
 /* Ceci permet d'inporter ici les fichiers necessaires afin de couper le code en plusieurs fichiers */
 //import nomDefault, {nomExport1 as newName, nomExport2} from "./assets/scripts/nomFichier.js"
 
+window.addEventListener("load", function () {
 
 /* nav-bar (hamburger) */
 const hamburgerToggler = document.querySelector(".hamburger");
@@ -44,4 +45,6 @@ toTopBtn.addEventListener("click", () => {
             top: 0
         });
     }
+});
+
 });

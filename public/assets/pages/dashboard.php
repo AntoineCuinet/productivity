@@ -22,6 +22,9 @@ $firstnameError = $lastnameError = $emailError = $photoError = "";
 <div class="dashboard-container">
     <h4><?= $title_dashboard; ?></h4>
     <br>
+
+    
+
 </div>
     
 

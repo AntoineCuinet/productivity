@@ -1,6 +1,6 @@
     <!-- btn pour remonter en haut du site -->
     <div class="to-top-btn">
-        <img src="./assets/pictures/arrow-down-circle-outline.svg" alt="Remonter">
+        <img src="./assets/pictures/arrow-down-circle-outline.svg" alt="Remonter" width="50px" height="50px">
     </div>
 
 

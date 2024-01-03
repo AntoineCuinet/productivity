@@ -188,14 +188,14 @@
         border: none;
         box-shadow: none;
         border-radius: 0;
-        padding: 100px 30px;
+        margin: 30px;
     }
 }
 
 .setting {
-    max-height: auto;
     margin-top: 200px;
     @media screen and (max-width: $mq) {
-        margin-top: 50px;
+        margin-top: 20%;
+        margin-bottom: 10%;
     }
 }
