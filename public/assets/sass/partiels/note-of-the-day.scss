@@ -1,0 +1,54 @@
+.note-of-the-day {
+
+    .form {
+        text-align: center;
+
+        input { 
+            display: inline-block;
+        }
+
+        .ratings {
+            text-align: center;
+            transform: rotateY(180deg);
+
+            input {
+                display: none;
+
+                &:checked ~ label:after {
+                    opacity: 1;
+                }
+            }
+            label {
+                cursor: pointer;
+                width: 50px;
+                position: relative;
+
+                &::before {
+                    content: '☆';
+                    // font-family: fontAwesome;
+                    position: absolute;
+                    font-size: 50px;
+                    color: aliceblue;
+                }
+                &::after {
+                    content: '★';
+                    // font-family: fontAwesome;
+                    font-size: 50px;
+                    color: aquamarine;
+                    top: 0;
+                    opacity: 0;
+                    transition: 0.5s;
+                    text-shadow: 0 2px 5px rgba(255,255,255,0.5);
+                }
+
+                &:hover ~ label:after {
+                    opacity: 1;
+                }
+
+                &:hover::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

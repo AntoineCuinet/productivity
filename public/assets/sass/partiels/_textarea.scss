@@ -1,0 +1,21 @@
+.textaera-container {
+    display: flex;
+    justify-content: center;
+
+    .textarea {
+        resize: none;
+        border: 2px solid $KS-color-white;
+        width: 90%;
+        height: 300px;
+        border-radius: 15px;
+        padding: 10px;
+
+        textarea:invalid {
+            border: 2px dashed red;
+        }
+        
+        textarea:valid {
+            border: 2px solid lime;
+        }
+    }
+}

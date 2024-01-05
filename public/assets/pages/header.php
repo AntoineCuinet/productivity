@@ -9,6 +9,7 @@
     <link href="../../style.css" rel="stylesheet" type="text/css">
     <!-- icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"> -->
     <title><?= $title.' - '.$title_page ?? ''; ?></title>
 </head>
 <body>

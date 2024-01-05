@@ -37,11 +37,11 @@
 }
 
 .btn-succes {
-    background: $KS-color-succes;
-    border: 2px solid $KS-color-succes;
+    background: $KS-color-tertiary;
+    border: 2px solid $KS-color-tertiary;
 
     &:hover {
-        color: $KS-color-succes;
+        color: $KS-color-tertiary;
         background: $KS-color-bg;
     }
 }

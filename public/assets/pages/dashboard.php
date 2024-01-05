@@ -23,6 +23,8 @@ $firstnameError = $lastnameError = $emailError = $photoError = "";
     <h4><?= $title_dashboard; ?></h4>
     <br>
 
+    <a href="./noteOfTheDay.php">Rentrez votre note du jour !</a>
+    <br>
     
 
 </div>

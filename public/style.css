@@ -680,11 +680,11 @@ body .contenu {
 }
 
 .btn-succes {
-  background: #5c8374;
-  border: 2px solid #5c8374;
+  background: #9fc8b9;
+  border: 2px solid #9fc8b9;
 }
 .btn-succes:hover {
-  color: #5c8374;
+  color: #9fc8b9;
   background: #092635;
 }
 
@@ -830,6 +830,68 @@ body .contenu {
 }
 .dashboard-container h4 {
   padding-left: 5%;
+}
+
+.textaera-container {
+  display: flex;
+  justify-content: center;
+}
+.textaera-container .textarea {
+  resize: none;
+  border: 2px solid #FFFFF0;
+  width: 90%;
+  height: 300px;
+  border-radius: 15px;
+  padding: 10px;
+}
+.textaera-container .textarea textarea:invalid {
+  border: 2px dashed red;
+}
+.textaera-container .textarea textarea:valid {
+  border: 2px solid lime;
+}
+
+.note-of-the-day .form {
+  text-align: center;
+}
+.note-of-the-day .form input {
+  display: inline-block;
+}
+.note-of-the-day .form .ratings {
+  text-align: center;
+  transform: rotateY(180deg);
+}
+.note-of-the-day .form .ratings input {
+  display: none;
+}
+.note-of-the-day .form .ratings input:checked ~ label:after {
+  opacity: 1;
+}
+.note-of-the-day .form .ratings label {
+  cursor: pointer;
+  width: 50px;
+  position: relative;
+}
+.note-of-the-day .form .ratings label::before {
+  content: "☆";
+  position: absolute;
+  font-size: 50px;
+  color: aliceblue;
+}
+.note-of-the-day .form .ratings label::after {
+  content: "★";
+  font-size: 50px;
+  color: aquamarine;
+  top: 0;
+  opacity: 0;
+  transition: 0.5s;
+  text-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
+}
+.note-of-the-day .form .ratings label:hover ~ label:after {
+  opacity: 1;
+}
+.note-of-the-day .form .ratings label:hover::after {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
