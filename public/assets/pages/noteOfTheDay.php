@@ -11,7 +11,7 @@ if(empty($_SESSION['user'])) {
 $title = 'Kirsao';
 $title_page = 'Note du jour';
 $description_page = 'Note du jour';
-$day = date("Y-m-d"); // Utilise la date du jour comme titre
+$day = 'Note du '.date("D. M. Y"); // Utilise la date du jour comme titre
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Location: dashboard.php');
     exit();
 
-    
+
     var_dump($user_id, $day, $star, $story);
 }
 
@@ -71,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <br>
 
     <div class="redirect-lien">
-        <a href="./dashboard.php">retourner sur mon espace</a>
+        <a href="./dashboard.php">Retourner sur mon espace</a>
     </div>
 </div>
 

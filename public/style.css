@@ -821,6 +821,7 @@ body .contenu {
   margin: auto;
   height: auto;
   min-height: 100vh;
+  padding: 0 5%;
   padding-top: 150px;
 }
 @media screen and (max-width: 800px) {
