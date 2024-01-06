@@ -1,0 +1,46 @@
+.infinit-part {
+    width: 100%;
+    padding: 8px 0px;
+    position: fixed;
+    z-index: 1;
+    background: $KS-color-white;
+    // border-bottom: 1px solid $black;
+
+    .container {
+        margin: auto;
+        max-width: $max-width;
+        display: flex;
+        align-items: center;
+        overflow: hidden; // Pour cacher le texte dépassant de la largeur
+        position: relative;
+        z-index: 1; // S'assurer que le box-shadow est au-dessus du contenu de .container
+        
+
+        .txt {
+            white-space: nowrap;
+            animation: scroll 15s linear infinite;
+            transform: translateX(100%); /* Initial position hors de l'écran */
+            color: $KS-color-primary;
+
+            //empêche la séléction du text
+            user-select: none; /* Propriété standard */
+            -moz-user-select: none; /* Firefox */
+            -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+            -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0%);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+
+            .it {
+                font-style: italic;
+                font-weight: bold;
+            }
+        }
+    }
+}

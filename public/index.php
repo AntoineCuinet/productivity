@@ -17,6 +17,17 @@ $description_page = 'Page d\'accueil du site';
 </head>
 <body>
     <header>
+
+        <!-- bandeau infini (à suprimer) -->
+        <section class="infinit-part">
+            <div class="container">
+                <span class="txt">Site en <span class="it">construction</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; version <span class="it">BETA</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Site en <span class="it">construction</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; version <span class="it">BETA</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Site en <span class="it">construction</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; version <span class="it">BETA</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Site en <span class="it">construction</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; version <span class="it">BETA</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;</span>
+                <span class="txt">Site en <span class="it">construction</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; version <span class="it">BETA</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Site en <span class="it">construction</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; version <span class="it">BETA</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Site en <span class="it">construction</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; version <span class="it">BETA</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Site en <span class="it">construction</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; version <span class="it">BETA</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </section>
+
+
+
         <!-- menu principal -->
         <nav id="navbar">
             <div class="first-container">
