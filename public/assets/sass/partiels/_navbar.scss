@@ -9,10 +9,6 @@
     // à supprimer après la version béta
     &.navbar-index {
         top: 35px; //for infinit bandeau 
-
-        @media screen and (max-width: $mq) {
-            top: 45px; //for infinit bandeau
-        }
     }
 
 

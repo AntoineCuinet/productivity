@@ -231,11 +231,6 @@ body .contenu {
   top: 35px;
 }
 @media screen and (max-width: 800px) {
-  #navbar.navbar-index {
-    top: 45px;
-  }
-}
-@media screen and (max-width: 800px) {
   #navbar {
     position: fixed;
     top: 0;
