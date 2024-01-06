@@ -2,13 +2,23 @@
     position: fixed;
     z-index: 1;
     width: 100%;
-    top: 35px; //for infinit bandeau 
     padding: 25px 35px;
     transition: 0.6s;
+    top: 0;
+
+    // à supprimer après la version béta
+    &.navbar-index {
+        top: 35px; //for infinit bandeau 
+
+        @media screen and (max-width: $mq) {
+            top: 45px; //for infinit bandeau
+        }
+    }
+
 
     @media screen and (max-width: $mq) {
         position: fixed;
-        top: 45px; //for infinit bandeau (top: 0px;)
+        top: 0;
         padding: 7px 15px;
     }
 
