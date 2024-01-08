@@ -1,9 +1,9 @@
-<?php require('db.php'); 
+<?php require('db.php');
 
 //poour supprimer la session
 //session_destroy();
 
-if(empty($_SESSION['user'])) {
+if (empty($_SESSION['user'])) {
     header('Location: login.php');
     exit();
 }
@@ -11,24 +11,31 @@ if(empty($_SESSION['user'])) {
 $title = 'Kirsao';
 $title_page = 'Note du jour';
 $description_page = 'Note du jour';
-$day = 'Note du '.date("D. M. Y"); // Utilise la date du jour comme titre
+$day = 'Note du ' . date("D. M. Y"); // Utilise la date du jour comme titre
 
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
 
     //fonction de vérif
-	function verifyInput($var) {
-		$var = trim($var);
-		$var = stripslashes($var);
-		$var = htmlspecialchars($var);
-	  
-		return $var;
-	}
-    $star = $_POST["star"];
+    function verifyInput($var)
+    {
+        $var = trim($var);
+        $var = stripslashes($var);
+        $var = htmlspecialchars($var);
+
+        return $var;
+    }
+
+    if (!empty($_POST["star"])) {
+        $star = $_POST["star"];
+    } else {
+        $star = '1';
+    }
+    
     $story = verifyInput($_POST["story"]);
 
-    $user_id = $_SESSION['user'];
+    $user_id = $_SESSION['user']->id;
 
     $req = $db->prepare("INSERT INTO note_of_the_day (user_id, title, rating, content, create_at) VALUES (:user_id, :title, :rating, :content, NOW())");
     $req->bindValue(':user_id', $user_id, PDO::PARAM_INT);
@@ -39,9 +46,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     header('Location: dashboard.php');
     exit();
-
-
-    var_dump($user_id, $day, $star, $story);
 }
 
 ?>
@@ -54,12 +58,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <h3><?= $day; ?></h3>
 
     <form method="POST" action="noteOfTheDay.php" role="note" class="form">
-        <div class="ratings"> 
-            <input type="radio" name="star" id="star1" required><label for="star1"></label>
-            <input type="radio" name="star" id="star2"><label for="star2"></label>
-            <input type="radio" name="star" id="star3"><label for="star3"></label>
-            <input type="radio" name="star" id="star4"><label for="star4"></label>
-            <input type="radio" name="star" id="star5"><label for="star5"></label>
+        <div class="ratings">
+            <input type="radio" name="star" value="5" id="star1"><label for="star1"></label>
+            <input type="radio" name="star" value="4" id="star2"><label for="star2"></label>
+            <input type="radio" name="star" value="3" id="star3"><label for="star3"></label>
+            <input type="radio" name="star" value="2" id="star5"><label for="star5"></label>
+            <input type="radio" name="star" value="1" id="star4"><label for="star4"></label>
         </div>
         <br>
         <div class="textaera-container">

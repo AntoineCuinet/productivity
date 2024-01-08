@@ -938,4 +938,38 @@ body .contenu {
   font-weight: bold;
 }
 
+.table table {
+  border-collapse: collapse;
+  width: auto;
+  box-shadow: 0 2px 8px rgba(1, 18, 35, 0.5019607843);
+  margin: 50px auto;
+  border: 2px solid #333;
+  padding: 10px 20px;
+}
+.table table thead tr {
+  background-color: #011223;
+  color: #c0c0c0;
+  text-align: center;
+  border: 1px solid #333;
+}
+.table table thead tr th {
+  color: antiquewhite;
+  padding: 10px 20px;
+  border: 1px solid #333;
+  text-transform: uppercase;
+}
+.table table tbody tr {
+  background-color: #FFFFF0;
+  border: 1px solid #333;
+  text-align: center;
+}
+.table table tbody tr:nth-child(even) {
+  background-color: #c0c0c0;
+}
+.table table tbody tr td {
+  color: #011223;
+  padding: 10px 20px;
+  border: 1px solid #333;
+}
+
 /*# sourceMappingURL=style.css.map */
