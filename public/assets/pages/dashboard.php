@@ -1,8 +1,5 @@
 <?php require('db.php'); 
 
-//poour supprimer la session
-//session_destroy();
-
 if(empty($_SESSION['user'])) {
     header('Location: login.php');
     exit();
@@ -15,13 +12,44 @@ $user = $_SESSION['user'];
 $title_dashboard = 'Salut '.$user->firstname.' !';
 $firstnameError = $lastnameError = $emailError = $photoError = "";
 
-$req = $db->prepare("SELECT * FROM note_of_the_day WHERE user_id = :user_id ORDER BY create_at DESC");
+$req = $db->prepare("SELECT * FROM note_of_the_day WHERE user_id = :user_id ORDER BY create_at DESC LIMIT 7");
 $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
 $req->execute();
 
 $notes = $req->fetchAll();
 
 
+
+function joursPrecedents() {
+    $joursFrancais = [
+        'Mon' => 'Lun',
+        'Tue' => 'Mar',
+        'Wed' => 'Mer',
+        'Thu' => 'Jeu',
+        'Fri' => 'Ven',
+        'Sat' => 'Sam',
+        'Sun' => 'Dim',
+    ];
+
+    $aujourdhui = new DateTime();
+    $aujourdhuiFormat = $joursFrancais[$aujourdhui->format('D')] . '. ' . $aujourdhui->format('d-m-Y');
+
+    $joursPrecedents = array();
+    $joursPrecedents[] = $aujourdhuiFormat;
+
+    for ($i = 1; $i <= 6; $i++) {
+        $aujourdhui->modify('-1 day');
+        $joursPrecedents[] = $joursFrancais[$aujourdhui->format('D')] . '. ' . $aujourdhui->format('d-m-Y');
+    }
+
+    return $joursPrecedents;
+}
+
+// Appel de la fonction et affichage des résultats
+$jours = joursPrecedents();
+
+$todos = $notes;
+$task = '';
 
 
 
@@ -33,12 +61,18 @@ $notes = $req->fetchAll();
     <h4><?= $title_dashboard; ?></h4>
     <br>
 
+    <?php 
+        $today = new DateTime();
+        $lastNoteDay = (count($notes) > 0) ? substr($notes[0]->create_at, 0, 10) : '';
 
-
+        if ($today->format('Y-m-d') !== $lastNoteDay) {
+    ?>
     <div class="redirect-lien">
         <a href="./noteOfTheDay.php">Rentre t'as note du jour !</a>
+        
     </div>
     <br>
+    <?php } ?>
 
     <div class="redirect-lien">
         <a href="./todo.php">Rentre des tâches pour atteindre tes objectifs !</a>
@@ -50,9 +84,7 @@ $notes = $req->fetchAll();
     </div>
     <br>
 
-
-
-
+    <!-- affichage notes -->
     <?php
     if (!empty($notes)) {
         // Affichez chaque note à l'aide de la boucle foreach
@@ -72,31 +104,54 @@ $notes = $req->fetchAll();
     ?>
     <br><br><br>
 
-    
+
+
+
+
+    <!-- affichage tableau -->
     <div class="table">
         <table>
             <!-- head -->
             <thead>
                 <tr>
-                <?php foreach ($notes as $note) {
-                    echo "<th>titre 1</th>";
-                }?>
+                    <th>Date</th>
+                    <th>Weight</th>
+                    <?php
+                    //foreach ($todos as $task) {
+                     //   echo "<th>".$task."</th>";
+                    //}
+                    ?>
                 </tr>
             </thead>
 
             <!-- body -->
             <tbody>
-                <?php foreach ($notes as $note) {
+                <?php
+                $cursor = 0;
+                for ($i = 0; $i <= 6; $i++) {
                     echo "<tr>";
-                    foreach ($notes as $note) {
-                        echo "<td>contenu 1</td>";
+                    echo "<td>" . $jours[$i] . "</td>";
+
+                    $create_day = new DateTime($notes[$cursor]->create_at);
+                    $modifi_day = substr($jours[$i], 5, 10);
+                    if ($create_day->format('d-m-Y') === $modifi_day) {
+                        echo "<td>" . $notes[$cursor]->weight . "</td>";
+                        $cursor++;
+                        $cursor = (count($notes) == $cursor)? 0 : $cursor;
+                    } else {
+                        echo "<td></td>";
                     }
+
                     echo "</tr>";
-                }?>
+                }
+                ?>
             </tbody>
         </table>
     </div>
     <br><br><br>
+
+
+
 
 </div>
 <?php include('./footer.php'); ?>

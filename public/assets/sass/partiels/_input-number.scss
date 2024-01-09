@@ -1,0 +1,56 @@
+.input-number {
+    margin: 10px auto;
+    color: $KS-color-tertiary;
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 30px;
+    border: 1px solid $KS-color-tertiary;
+    border-radius: 7px;
+    align-items: center;
+    transition: 0.3s ease-out;
+    flex-direction: row;
+    
+
+    label {
+        white-space: nowrap; 
+    } 
+
+    i {
+        font-size: 15px;
+        color: $KS-color-tertiary;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .bx-minus {
+        transform: translateX(15px);
+    }
+
+    .bx-tachometer {
+        transform: translateX(25px);
+        font-size: 20px;
+    }
+
+    .num-input {
+        transform: translateX(7px);
+        font-size: 15px;
+        text-align: center;
+        background: none;
+        border: none;
+        color: $KS-color-tertiary;
+        font-weight: bold;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+
+        }
+
+        //remove default arraws
+        &::-webkit-outer-spin-button, 
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+}

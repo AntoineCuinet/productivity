@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="form-group">
         <input type="text" name="title" value="" required>
         <i class='bx bx-task'></i>
-        <span>T'on meilleur Email</span>
+        <span>T'as tache</span>
     </div>
     <br>
 

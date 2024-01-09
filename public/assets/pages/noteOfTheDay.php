@@ -11,7 +11,7 @@ if (empty($_SESSION['user'])) {
 $title = 'Kirsao';
 $title_page = 'Note du jour';
 $description_page = 'Note du jour';
-$day = 'Note du ' . date("D. M. Y"); // Utilise la date du jour comme titre
+$day = 'Note du ' . date("D. d. M. Y"); // Utilise la date du jour comme titre
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -34,14 +34,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     $story = verifyInput($_POST["story"]);
-
+    $weight = verifyInput($_POST["weight"]);
     $user_id = $_SESSION['user']->id;
 
-    $req = $db->prepare("INSERT INTO note_of_the_day (user_id, title, rating, content, create_at) VALUES (:user_id, :title, :rating, :content, NOW())");
+    $req = $db->prepare("INSERT INTO note_of_the_day (user_id, title, rating, content, create_at, weight) VALUES (:user_id, :title, :rating, :content, NOW(), :weight)");
     $req->bindValue(':user_id', $user_id, PDO::PARAM_INT);
     $req->bindValue(':title', $day, PDO::PARAM_STR);
     $req->bindValue(':rating', $star, PDO::PARAM_INT);
     $req->bindValue(':content', $story, PDO::PARAM_STR);
+    $weight = strval($weight);
+    $req->bindValue(':weight', $weight, PDO::PARAM_STR);
     $req->execute();
 
     header('Location: dashboard.php');
@@ -70,6 +72,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <textarea class="textarea" id="story" name="story" autocomplete="off" placeholder="Entre t'as note ici" maxlength="256" rows="5" cols="33" spellcheck="true" required></textarea>
         </div>
         <br>
+
+        <label for="">Ton poids: </label>
+        <div class="form-group input-number">
+            <i class='bx bx-minus'></i>
+            <input type="number" name="weight" value="60" placeholder="Kg" min="10" max="200" step="0.001" class="num-input">
+            <i class='bx bx-plus'></i>
+            <i class='bx bx-tachometer'></i>
+        </div>
+        <br>
+        <!-- <div class="form-group">
+            <input type="file" name="file" value="" style="cursor: pointer;">
+            <i class='bx bx-image-add'></i>
+            <span>T'on physique</span>
+        </div>
+        <br> -->
+
         <input type="submit" value="Enregister" name="valider" class="btn btn-succes">
     </form>
     <br>

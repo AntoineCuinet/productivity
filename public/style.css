@@ -972,4 +972,51 @@ body .contenu {
   border: 1px solid #333;
 }
 
+.input-number {
+  margin: 10px auto;
+  color: #9fc8b9;
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 30px;
+  border: 1px solid #9fc8b9;
+  border-radius: 7px;
+  align-items: center;
+  transition: 0.3s ease-out;
+  flex-direction: row;
+}
+.input-number label {
+  white-space: nowrap;
+}
+.input-number i {
+  font-size: 15px;
+  color: #9fc8b9;
+  font-weight: bold;
+  cursor: pointer;
+}
+.input-number .bx-minus {
+  transform: translateX(15px);
+}
+.input-number .bx-tachometer {
+  transform: translateX(25px);
+  font-size: 20px;
+}
+.input-number .num-input {
+  transform: translateX(7px);
+  font-size: 15px;
+  text-align: center;
+  background: none;
+  border: none;
+  color: #9fc8b9;
+  font-weight: bold;
+  width: 100%;
+}
+.input-number .num-input:focus {
+  outline: none;
+}
+.input-number .num-input::-webkit-outer-spin-button, .input-number .num-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -47,4 +47,42 @@ toTopBtn.addEventListener("click", () => {
     }
 });
 
+
+//input number
+const inputNumber = document.querySelectorAll('.input-number');
+
+inputNumber.forEach(num => {
+    const numInput = num.querySelector('.num-input');
+    const arrayUp = num.querySelector('.bx-plus');
+    const arrayDown = num.querySelector('.bx-minus');
+
+    arrayUp.addEventListener('click', () => {
+        numInput.stepUp();
+        numInput.value = parseInt(numInput.value) +1; // Fix: Update input value
+        checkMaxMin(num);
+    });
+
+    arrayDown.addEventListener('click', () => {
+        numInput.stepDown();
+        numInput.value = parseInt(numInput.value) -1; // Fix: Update input value
+        checkMaxMin(num);
+    });
+
+    numInput.addEventListener('input', () => checkMaxMin(num)); // Fix: Pass num as an argument
+});
+
+function checkMaxMin(num) {
+    const numInput = num.querySelector('.num-input'); // Fix: Move the declaration inside the function
+    const numInputValue = parseInt(numInput.value);
+    const numInputMax = parseInt(numInput.max);
+    const numInputMin = parseInt(numInput.min);
+
+    if (numInputValue === numInputMax) {
+        arrayUp.style.display = "none";
+    } else if (numInputValue === numInputMin) {
+        arrayDown.style.display = "none";
+    }
+}
+
+
 });
