@@ -15,8 +15,13 @@ $firstnameError = $lastnameError = $emailError = $photoError = "";
 $req = $db->prepare("SELECT * FROM note_of_the_day WHERE user_id = :user_id ORDER BY create_at DESC LIMIT 7");
 $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
 $req->execute();
-
 $notes = $req->fetchAll();
+
+
+$req = $db->prepare("SELECT * FROM todo WHERE user_id = :user_id");
+$req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
+$req->execute();
+$todos = $req->fetchAll();
 
 
 
@@ -48,11 +53,6 @@ function joursPrecedents() {
 // Appel de la fonction et affichage des résultats
 $jours = joursPrecedents();
 
-$todos = $notes;
-$task = '';
-
-
-
 ?>
 
 <?php include('header.php'); ?>
@@ -66,13 +66,9 @@ $task = '';
         $lastNoteDay = (count($notes) > 0) ? substr($notes[0]->create_at, 0, 10) : '';
 
         if ($today->format('Y-m-d') !== $lastNoteDay) {
+            echo "<div class='redirect-lien'><a href='./noteOfTheDay.php'>Rentre t'as note du jour !</a></div><br>";
+        }
     ?>
-    <div class="redirect-lien">
-        <a href="./noteOfTheDay.php">Rentre t'as note du jour !</a>
-        
-    </div>
-    <br>
-    <?php } ?>
 
     <div class="redirect-lien">
         <a href="./todo.php">Rentre des tâches pour atteindre tes objectifs !</a>
@@ -82,16 +78,38 @@ $task = '';
     <div class="redirect-lien">
         <a href="./routine.php">Rentre une routine dès maintenant !</a>
     </div>
-    <br>
+    <br><br>
+
+
+
+    <!-- affichage to-do-list -->
+    <div class="todolist">
+        <?php
+        if (!empty($todos)) {
+            // Affichez chaque note à l'aide de la boucle foreach
+            foreach ($todos as $todo) {
+                $checked = ($todo->realized_at) ? " checked" : "";
+                echo '<div class="row-todolist">';
+                echo '<div class="affichage-color" style="background-color: ' . $todo->color . ';"></div>';
+                echo '<p >'.$todo->title.' </p>';
+                echo '<label><input class="todocheck" dbid="'.$todo->todo_id.'" type="checkbox" name="todo"'.$checked.'><span></span></label>';
+                echo "<br>";
+                echo ' </div>';
+            }
+        } else {
+            echo "<div class='redirect-lien'><p>Tu n'as pas encore rentré de tâche, <a href='./todo.php'>rentre t'as première tâche !</a></div>";
+        }
+        ?>
+    </div>
+
+
 
     <!-- affichage notes -->
     <?php
     if (!empty($notes)) {
         // Affichez chaque note à l'aide de la boucle foreach
         foreach ($notes as $note) {
-            echo "<br>";
-            echo "<hr>";
-            echo "<br>";
+            echo "<br><hr><br>";
             echo "<h3>$note->title </h3>";
             echo "<p><strong>Note : </strong> $note->rating/5</p>";
             echo "<br>";
@@ -117,9 +135,9 @@ $task = '';
                     <th>Date</th>
                     <th>Weight</th>
                     <?php
-                    //foreach ($todos as $task) {
-                     //   echo "<th>".$task."</th>";
-                    //}
+                    foreach ($todos as $todo) {
+                        echo "<th>".$todo->title."</th>";
+                    }
                     ?>
                 </tr>
             </thead>
@@ -132,15 +150,21 @@ $task = '';
                     echo "<tr>";
                     echo "<td>" . $jours[$i] . "</td>";
 
-                    $create_day = new DateTime($notes[$cursor]->create_at);
-                    $modifi_day = substr($jours[$i], 5, 10);
-                    if ($create_day->format('d-m-Y') === $modifi_day) {
-                        echo "<td>" . $notes[$cursor]->weight . "</td>";
-                        $cursor++;
-                        $cursor = (count($notes) == $cursor)? 0 : $cursor;
+                    if ($cursor < count($notes)) {
+                        $create_day = new DateTime($notes[$cursor]->create_at);
+                        $modifi_day = substr($jours[$i], 5, 10);
+                        if ($create_day->format('d-m-Y') === $modifi_day) {
+                            echo "<td style='background: #1e6549ed; color: #FFFFF0;'>" . $notes[$cursor]->weight . "</td>";
+                            $cursor++;
+                        } else {
+                            echo "<td style='background: #a61c1cec;'></td>";
+                        }
                     } else {
                         echo "<td></td>";
                     }
+
+
+
 
                     echo "</tr>";
                 }

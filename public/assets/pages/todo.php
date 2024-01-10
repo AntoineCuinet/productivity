@@ -23,10 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return $var;
     }
 
-    $task = verifyInput($_POST["title"]);;
-    $req  = $db->prepare("INSERT INTO todo (user_id, title) VALUES (:user_id, :title)");
+    $task = verifyInput($_POST["title"]);
+    $color = verifyInput($_POST["color"]);
+    $req  = $db->prepare("INSERT INTO todo (user_id, title, color) VALUES (:user_id, :title, :color)");
     $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
     $req->bindValue(':title', $task, PDO::PARAM_STR);
+    $req->bindValue(':color', $color, PDO::PARAM_STR);
     $req->execute();
 
     header('Location: dashboard.php');
@@ -41,6 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="title" value="" required>
         <i class='bx bx-task'></i>
         <span>T'as tache</span>
+    </div>
+    <br>
+    <div class="form-group">
+        <input type="color" name="color" value="" class="color">
+        <i class='bx bxs-color-fill'></i>
+        <span>Donne une couleur à t'as tâche</span>
     </div>
     <br>
 

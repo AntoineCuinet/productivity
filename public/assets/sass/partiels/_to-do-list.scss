@@ -1,0 +1,92 @@
+.todolist {
+    width: 380px;
+    padding: 20px 30px 20px 20px;
+    border: 1px solid $KS-color-tertiary;
+    border-radius: 15px;
+
+    .row-todolist {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        border-bottom: 1px dashed #ffffffab;
+        padding:20px 0;
+        font-size: 20px;
+
+        .affichage-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        label {
+            position: relative;
+            width: 25px;
+            height: 25px;
+
+            input {
+                width: 100%;
+                height: 100%;
+                margin-left: 20px;
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                z-index: 1;
+
+            }
+
+
+            span {
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                border: 2px solid $KS-color-white;
+                border-radius: 6px;
+                cursor: pointer;
+                margin-left: 20px;
+                background: transparent;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 10px;
+                    bottom: 5px;
+                    width: 0px; 
+                    height: 0px;
+                    border: solid $KS-color-tertiary;
+                    border-width: 0 4px 4px 0;
+                    transform: rotate(45deg);
+                    opacity: 0;
+                    transition: 0.5s ease-out;
+                }
+            }
+
+
+            input:checked ~ span::after {
+                width: 15px;
+                height: 25px;
+                opacity: 1;
+            }
+        }
+    }
+
+    .routine-todolist {
+        border-bottom: none;
+        justify-content: space-between;
+        // transform: translateX(-30px);
+
+
+        label {
+            input {
+                transform: translateX(-12px);
+            }
+            
+            span {
+                transform: translateY(2px)
+            }
+        }
+
+    }
+}
+

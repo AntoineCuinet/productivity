@@ -534,96 +534,6 @@ body .contenu {
     padding-top: 15px;
   }
 }
-.login-container .wrapper .wrapper-contain .form .form-group {
-  position: relative;
-  z-index: 0;
-  padding-top: 20px;
-  font-family: "Source Code Pro";
-  font-size: 22px;
-  width: 350px;
-  text-align: center;
-  left: 50%;
-  transform: translateX(-53%);
-}
-@media screen and (max-width: 800px) {
-  .login-container .wrapper .wrapper-contain .form .form-group {
-    padding-top: 5px;
-    font-size: 15px;
-    width: 250px;
-  }
-}
-@media screen and (max-height: 700px) {
-  .login-container .wrapper .wrapper-contain .form .form-group {
-    padding-top: 5px;
-    font-size: 15px;
-    width: 250px;
-  }
-}
-.login-container .wrapper .wrapper-contain .form .form-group input {
-  width: 100%;
-  padding: 7px;
-  border: 1px solid #9fc8b9;
-  background: transparent;
-  border-radius: 5px;
-  outline: none;
-  font-size: 1em;
-  color: #9fc8b9;
-}
-.login-container .wrapper .wrapper-contain .form .form-group input:valid ~ span, .login-container .wrapper .wrapper-contain .form .form-group input:focus ~ span {
-  transform: translateX(15px) translateY(-10px);
-  font-size: 0.65em;
-  padding: 0 10px;
-  background: #9fc8b9;
-  color: #1b4243;
-  border-radius: 4px;
-  letter-spacing: 1px;
-}
-@media screen and (max-width: 800px) {
-  .login-container .wrapper .wrapper-contain .form .form-group input:valid ~ span, .login-container .wrapper .wrapper-contain .form .form-group input:focus ~ span {
-    transform: translateX(15px) translateY(-7px);
-  }
-}
-@media screen and (max-height: 700px) {
-  .login-container .wrapper .wrapper-contain .form .form-group input:valid ~ span, .login-container .wrapper .wrapper-contain .form .form-group input:focus ~ span {
-    transform: translateX(15px) translateY(-7px);
-  }
-}
-.login-container .wrapper .wrapper-contain .form .form-group i {
-  position: absolute;
-  right: -30px;
-  transform: translateY(35%);
-  font-size: 25px;
-  color: #9fc8b9;
-}
-@media screen and (max-width: 800px) {
-  .login-container .wrapper .wrapper-contain .form .form-group i {
-    transform: translateY(20%);
-  }
-}
-@media screen and (max-height: 700px) {
-  .login-container .wrapper .wrapper-contain .form .form-group i {
-    transform: translateY(20%);
-  }
-}
-.login-container .wrapper .wrapper-contain .form .form-group span {
-  position: absolute;
-  left: 0;
-  padding: 8px;
-  pointer-events: none;
-  font-size: 1em;
-  color: #9fc8b9;
-  transition: 0.5s;
-}
-@media screen and (max-width: 800px) {
-  .login-container .wrapper .wrapper-contain .form .form-group span {
-    padding: 7px;
-  }
-}
-@media screen and (max-height: 700px) {
-  .login-container .wrapper .wrapper-contain .form .form-group span {
-    padding: 7px;
-  }
-}
 .login-container .wrapper .wrapper-contain .form .btn-login {
   display: inline-block;
   margin: 20px 0 0 0;
@@ -635,6 +545,100 @@ body .contenu {
   box-shadow: none;
   border-radius: 0;
   margin: 30px;
+}
+
+.form-group {
+  position: relative;
+  z-index: 0;
+  padding-top: 20px;
+  font-family: "Source Code Pro";
+  font-size: 22px;
+  width: 350px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-53%);
+}
+@media screen and (max-width: 800px) {
+  .form-group {
+    padding-top: 5px;
+    font-size: 15px;
+    width: 250px;
+  }
+}
+@media screen and (max-height: 700px) {
+  .form-group {
+    padding-top: 5px;
+    font-size: 15px;
+    width: 250px;
+  }
+}
+.form-group input {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #9fc8b9;
+  background: transparent;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1em;
+  color: #9fc8b9;
+}
+.form-group input:valid ~ span, .form-group input:focus ~ span {
+  transform: translateX(15px) translateY(-10px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: #9fc8b9;
+  color: #1b4243;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+@media screen and (max-width: 800px) {
+  .form-group input:valid ~ span, .form-group input:focus ~ span {
+    transform: translateX(15px) translateY(-7px);
+  }
+}
+@media screen and (max-height: 700px) {
+  .form-group input:valid ~ span, .form-group input:focus ~ span {
+    transform: translateX(15px) translateY(-7px);
+  }
+}
+.form-group i {
+  position: absolute;
+  right: -30px;
+  transform: translateY(35%);
+  font-size: 25px;
+  color: #9fc8b9;
+}
+@media screen and (max-width: 800px) {
+  .form-group i {
+    transform: translateY(20%);
+  }
+}
+@media screen and (max-height: 700px) {
+  .form-group i {
+    transform: translateY(20%);
+  }
+}
+.form-group span {
+  position: absolute;
+  left: 0;
+  padding: 8px;
+  pointer-events: none;
+  font-size: 1em;
+  color: #9fc8b9;
+  transition: 0.5s;
+}
+@media screen and (max-width: 800px) {
+  .form-group span {
+    padding: 7px;
+  }
+}
+@media screen and (max-height: 700px) {
+  .form-group span {
+    padding: 7px;
+  }
+}
+.form-group .color {
+  cursor: pointer;
 }
 
 .setting {
@@ -1017,6 +1021,86 @@ body .contenu {
 .input-number .num-input::-webkit-outer-spin-button, .input-number .num-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.todolist {
+  width: 380px;
+  padding: 20px 30px 20px 20px;
+  border: 1px solid #9fc8b9;
+  border-radius: 15px;
+}
+.todolist .row-todolist {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.6705882353);
+  padding: 20px 0;
+  font-size: 20px;
+}
+.todolist .row-todolist .affichage-color {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.todolist .row-todolist label {
+  position: relative;
+  width: 25px;
+  height: 25px;
+}
+.todolist .row-todolist label input {
+  width: 100%;
+  height: 100%;
+  margin-left: 20px;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+.todolist .row-todolist label span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 2px solid #FFFFF0;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 20px;
+  background: transparent;
+}
+.todolist .row-todolist label span::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  bottom: 5px;
+  width: 0px;
+  height: 0px;
+  border: solid #9fc8b9;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: 0.5s ease-out;
+}
+.todolist .row-todolist label input:checked ~ span::after {
+  width: 15px;
+  height: 25px;
+  opacity: 1;
+}
+.todolist .routine-todolist {
+  border-bottom: none;
+  justify-content: space-between;
+}
+.todolist .routine-todolist label input {
+  transform: translateX(-12px);
+}
+.todolist .routine-todolist label span {
+  transform: translateY(2px);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

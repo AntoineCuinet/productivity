@@ -85,4 +85,20 @@ function checkMaxMin(num) {
 }
 
 
+//for to-do-list
+const todochecks = document.querySelectorAll(".todocheck");
+todochecks.forEach(todocheck => {
+    todocheck.addEventListener('click', () => {
+        let id = todocheck.getAttribute('dbid');
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'toDoEvent.php');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        let param = "id=" + id;
+        param += (todocheck.checked) ? "&checked" : "";
+        console.log(id);
+        xhr.send(param);
+    });
+});
+
+
 });
