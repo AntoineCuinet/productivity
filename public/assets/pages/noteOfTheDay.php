@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <br>
         <div class="textaera-container">
-            <textarea class="textarea" id="story" name="story" autocomplete="off" placeholder="Entre t'as note ici" maxlength="256" rows="5" cols="33" spellcheck="true" required></textarea>
+            <textarea class="textarea" id="story" name="story" autocomplete="off" placeholder="Entre t'as note ici" maxlength="1000" rows="5" cols="33" spellcheck="true" required></textarea>
         </div>
         <br>
 

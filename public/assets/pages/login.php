@@ -43,23 +43,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $req->fetch();
         if($user && password_verify($password, $user->password)) {
             $_SESSION['user'] = $user;
-            header('Location: dashboard.php');
+
+            $req = $db->prepare("SELECT * FROM objective WHERE user_id = :user_id");
+            $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
+            $req->execute();
+            $objectif = $req->fetchAll();
+
+            if (empty($objectif[0]->contrat)){
+                header('Location: begining_account.php');
+                exit();
+            } else {
+                header('Location: dashboard.php');
+                exit();
+            }
         }
         $passwordError = 'Mauvais identifiants.';
-
-
-
-        if(empty($emailError) && empty($passwordError)) {
-            $req = $db->prepare('INSERT INTO users (firstname, lastname, email, password, created_at) VALUES (:firstname, :lastname, :email, :password, NOW())');
-            $req->bindValue(':firstname', $firstname, PDO::PARAM_STR);
-            $req->bindValue(':lastname', $lastname, PDO::PARAM_STR);
-            $req->bindValue(':email', $email, PDO::PARAM_STR);
-            $req->bindValue(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
-            $req->execute();
-
-            unset($firstname, $lastname, $email, $password);
-            $succes = 'Ton inscription est validée ! <br> Tu peux <a href="login.php">te connecter</a> !';
-        }
     }
 }
 
