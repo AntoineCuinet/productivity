@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $task = verifyInput($_POST["title"]);
     $color = verifyInput($_POST["color"]);
-    $req  = $db->prepare("INSERT INTO todo (user_id, title, color) VALUES (:user_id, :title, :color)");
+    $req = $db->prepare("INSERT INTO todo (user_id, title, color, create_at) VALUES (:user_id, :title, :color, NOW())");
     $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
     $req->bindValue(':title', $task, PDO::PARAM_STR);
     $req->bindValue(':color', $color, PDO::PARAM_STR);

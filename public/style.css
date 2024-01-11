@@ -1033,7 +1033,7 @@ body .contenu {
   display: flex;
   align-items: center;
   justify-content: left;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.6705882353);
+  border-bottom: 1px dashed #c0c0c0;
   padding: 20px 0;
   font-size: 20px;
 }
@@ -1062,7 +1062,7 @@ body .contenu {
   width: 100%;
   height: 100%;
   position: absolute;
-  border: 2px solid #FFFFF0;
+  border: 2px solid #c0c0c0;
   border-radius: 6px;
   cursor: pointer;
   margin-left: 20px;
@@ -1101,6 +1101,44 @@ body .contenu {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.add-button {
+  margin: 0;
+  text-align: justify;
+  font-size: 30px;
+}
+@media screen and (max-width: 800px) {
+  .add-button {
+    font-size: 20px;
+  }
+}
+.add-button a {
+  text-decoration: underline;
+  color: #c0c0c0;
+  transition: 0.3s ease-out;
+}
+.add-button a:hover {
+  color: #9fc8b9;
+}
+
+.sup-button {
+  margin: 0 0 0 auto;
+  font-size: 30px;
+  transform: translateY(3px);
+}
+@media screen and (max-width: 800px) {
+  .sup-button {
+    font-size: 20px;
+  }
+}
+.sup-button a {
+  text-decoration: underline;
+  color: #c0c0c0;
+  transition: 0.3s ease-out;
+}
+.sup-button a:hover {
+  color: #a03e3e;
 }
 
 /*# sourceMappingURL=style.css.map */

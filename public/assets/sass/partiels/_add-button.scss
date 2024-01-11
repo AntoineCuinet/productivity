@@ -1,0 +1,39 @@
+.add-button {
+    margin: 0;
+    text-align: justify;
+    font-size: 30px;
+
+    @media screen and (max-width: $mq) {
+        font-size: 20px;
+    }
+
+    a {
+        text-decoration : underline;
+        color: $KS-color-font-dark;
+        transition: 0.3s ease-out;
+
+        &:hover {
+            color: $KS-color-tertiary;
+        }
+    }
+}
+
+.sup-button {
+    margin: 0 0 0 auto; 
+    font-size: 30px;
+    transform: translateY(3px);
+
+    @media screen and (max-width: $mq) {
+        font-size: 20px;
+    }
+
+    a {
+        text-decoration : underline;
+        color: $KS-color-font-dark;
+        transition: 0.3s ease-out;
+
+        &:hover {
+            color: $KS-color-danger;
+        }
+    }
+}

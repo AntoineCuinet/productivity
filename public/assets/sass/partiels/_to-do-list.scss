@@ -8,7 +8,7 @@
         display: flex;
         align-items: center;
         justify-content: left;
-        border-bottom: 1px dashed #ffffffab;
+        border-bottom: 1px dashed $KS-color-font-dark;
         padding:20px 0;
         font-size: 20px;
 
@@ -41,7 +41,7 @@
                 width: 100%;
                 height: 100%;
                 position: absolute;
-                border: 2px solid $KS-color-white;
+                border: 2px solid $KS-color-font-dark;
                 border-radius: 6px;
                 cursor: pointer;
                 margin-left: 20px;

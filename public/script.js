@@ -95,10 +95,27 @@ todochecks.forEach(todocheck => {
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         let param = "id=" + id;
         param += (todocheck.checked) ? "&checked" : "";
-        console.log(id);
         xhr.send(param);
     });
 });
+const suptodochecks = document.querySelectorAll(".sup-button");
+suptodochecks.forEach(suptodocheck => {
+    suptodocheck.addEventListener('click', () => {
+        let id = suptodocheck.getAttribute('dbidsup');
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'toDoEventSup.php');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        let param = "id=" + id;
+        param += (suptodocheck.checked) ? "&checked=1" : "&checked=0";
 
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Suppression réussie, rafraîchir la structure HTML
+                suptodocheck.parentNode.remove();
+            }
+        };
+        xhr.send(param);
+    });
+});
 
 });

@@ -66,8 +66,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $req->bindValue(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
             $req->execute();
 
-            unset($firstname, $lastname, $email, $password);
-            $succes = 'Ton inscription est validée ! <br> Tu peux <a href="login.php">te connecter</a> !';
+
+            $req = $db->prepare('SELECT * FROM users WHERE email = :email');
+            $req->bindValue(':email', $email, PDO::PARAM_STR);
+            $req->execute();
+
+            $user = $req->fetch();
+            if($user) {
+                $_SESSION['user'] = $user;
+                header('Location: begining_account.php');
+                exit();
+            }
         }
     }
 }
@@ -90,12 +99,6 @@ $detect = new Mobile_Detect();
     <div class="wrapper">
         <div class="wrapper-contain">
             <h2 class="login-title"><?= $title_page; ?></h2>
-
-            <?php if(!empty($succes)): ?>
-                <div class="alert alert-succes redirect-lien">
-                    <p><?= $succes; ?></p>
-                </div>
-            <?php endif; ?>
 
             <form method="POST" action="inscription.php" role="inscription" class="form">
 

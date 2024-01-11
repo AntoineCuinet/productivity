@@ -18,7 +18,7 @@ $req->execute();
 $notes = $req->fetchAll();
 
 
-$req = $db->prepare("SELECT * FROM todo WHERE user_id = :user_id");
+$req = $db->prepare("SELECT * FROM todo WHERE user_id = :user_id ORDER BY create_at DESC");
 $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
 $req->execute();
 $todos = $req->fetchAll();
@@ -71,11 +71,6 @@ $jours = joursPrecedents();
     ?>
 
     <div class="redirect-lien">
-        <a href="./todo.php">Rentre des tâches pour atteindre tes objectifs !</a>
-    </div>
-    <br>
-
-    <div class="redirect-lien">
         <a href="./routine.php">Rentre une routine dès maintenant !</a>
     </div>
     <br><br>
@@ -84,6 +79,9 @@ $jours = joursPrecedents();
 
     <!-- affichage to-do-list -->
     <div class="todolist">
+        <div class="add-button">
+            <a href="./todo.php"><i class='bx bx-plus-circle'></i></a>
+        </div>
         <?php
         if (!empty($todos)) {
             // Affichez chaque note à l'aide de la boucle foreach
@@ -93,6 +91,7 @@ $jours = joursPrecedents();
                 echo '<div class="affichage-color" style="background-color: ' . $todo->color . ';"></div>';
                 echo '<p >'.$todo->title.' </p>';
                 echo '<label><input class="todocheck" dbid="'.$todo->todo_id.'" type="checkbox" name="todo"'.$checked.'><span></span></label>';
+                echo '<div class="sup-button" dbidsup="'.$todo->todo_id.'"><a  ><i class="bx bx-minus-circle"></i></a></div>';
                 echo "<br>";
                 echo ' </div>';
             }
