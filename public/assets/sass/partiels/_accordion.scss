@@ -17,8 +17,7 @@
         border-radius: 8px;
         color: $KS-color-black;
         background: $KS-color-secondary;
-        box-shadow: 6px 6px 10px -1px rgba(255, 255, 255, 0.2),
-                    -6px -6px 10px -1px rgba(0, 0, 0, 0.15);
+        box-shadow: $box-shadow2;
 
         label {
             display: flex;

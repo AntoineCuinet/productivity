@@ -748,7 +748,7 @@ body .contenu {
   border-radius: 8px;
   color: #011223;
   background: #5c8374;
-  box-shadow: 6px 6px 10px -1px rgba(255, 255, 255, 0.2), -6px -6px 10px -1px rgba(0, 0, 0, 0.15);
+  box-shadow: 3px 3px 10px -1px rgba(255, 255, 255, 0.2), -3px -3px 10px -1px rgba(0, 0, 0, 0.15);
 }
 .accordion li label {
   display: flex;
@@ -945,7 +945,7 @@ body .contenu {
 .table table {
   border-collapse: collapse;
   width: auto;
-  box-shadow: 0 2px 8px rgba(1, 18, 35, 0.5019607843);
+  box-shadow: 3px 3px 10px -1px rgba(255, 255, 255, 0.2), -3px -3px 10px -1px rgba(0, 0, 0, 0.15);
   margin: 50px auto;
   border: 2px solid #333;
   padding: 10px 20px;
@@ -1028,6 +1028,7 @@ body .contenu {
   padding: 20px 30px 20px 20px;
   border: 1px solid #9fc8b9;
   border-radius: 15px;
+  box-shadow: 3px 3px 10px -1px rgba(255, 255, 255, 0.2), -3px -3px 10px -1px rgba(0, 0, 0, 0.15);
 }
 .todolist .row-todolist {
   display: flex;
