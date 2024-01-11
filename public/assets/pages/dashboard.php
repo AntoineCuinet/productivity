@@ -17,11 +17,15 @@ $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
 $req->execute();
 $notes = $req->fetchAll();
 
-
 $req = $db->prepare("SELECT * FROM todo WHERE user_id = :user_id ORDER BY create_at DESC");
 $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
 $req->execute();
 $todos = $req->fetchAll();
+
+$req = $db->prepare("SELECT * FROM routine WHERE user_id = :user_id");
+$req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
+$req->execute();
+$routines = $req->fetchAll();
 
 
 
@@ -52,6 +56,36 @@ function joursPrecedents() {
 
 // Appel de la fonction et affichage des résultats
 $jours = joursPrecedents();
+
+
+//Affichage des étoiles
+function noteRating($note) {
+    switch ($note) {
+        case "1":
+            echo "★☆☆☆☆";
+            break;
+
+        case "2":
+            echo "★★☆☆☆";
+            break;
+
+        case "3":
+            echo "★★★☆☆";
+            break;
+
+        case "4":
+            echo "★★★★☆";
+            break;
+
+        case "5":
+            echo "★★★★★";
+            break;
+
+        default:
+            echo "";
+    }
+}
+
 
 ?>
 
@@ -109,8 +143,8 @@ $jours = joursPrecedents();
         // Affichez chaque note à l'aide de la boucle foreach
         foreach ($notes as $note) {
             echo "<br><hr><br>";
-            echo "<h3>$note->title </h3>";
-            echo "<p><strong>Note : </strong> $note->rating/5</p>";
+            echo "<h3> $note->title </h3>";
+            echo "<p>". noteRating($note->rating)."</p>";
             echo "<br>";
             echo "<p>$note->content</p>";
             echo "<br>";
@@ -134,8 +168,8 @@ $jours = joursPrecedents();
                     <th>Date</th>
                     <th>Weight</th>
                     <?php
-                    foreach ($todos as $todo) {
-                        echo "<th>".$todo->title."</th>";
+                    foreach ($routines as $routine) {
+                        echo "<th>".$routine->title."</th>";
                     }
                     ?>
                 </tr>

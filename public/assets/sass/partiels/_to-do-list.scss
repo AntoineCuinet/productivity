@@ -12,6 +12,11 @@
         padding:20px 0;
         font-size: 20px;
 
+        &:last-child {
+            border-bottom: none;
+            padding:20px 0 0 0;
+        }
+
         .affichage-color {
             width: 15px;
             height: 15px;
@@ -45,6 +50,7 @@
                 border-radius: 6px;
                 cursor: pointer;
                 margin-left: 20px;
+                margin-right: 150px;
                 background: transparent;
 
                 &::after {

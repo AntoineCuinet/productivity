@@ -11,7 +11,19 @@ if (empty($_SESSION['user'])) {
 $title = 'Kirsao';
 $title_page = 'Note du jour';
 $description_page = 'Note du jour';
-$day = 'Note du ' . date("D. d. M. Y"); // Utilise la date du jour comme titre
+
+$joursFrancais = [
+    'Mon' => 'Lundi',
+    'Tue' => 'Mardi',
+    'Wed' => 'Mercredi',
+    'Thu' => 'Jeudi',
+    'Fri' => 'Vendredi',
+    'Sat' => 'Samedi',
+    'Sun' => 'Dimanche',
+];
+$aujourdhui = new DateTime();
+$day = 'Note du '. $joursFrancais[$aujourdhui->format('D')] . ' ' . $aujourdhui->format('d-m-Y');
+
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

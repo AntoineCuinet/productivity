@@ -1037,6 +1037,10 @@ body .contenu {
   padding: 20px 0;
   font-size: 20px;
 }
+.todolist .row-todolist:last-child {
+  border-bottom: none;
+  padding: 20px 0 0 0;
+}
 .todolist .row-todolist .affichage-color {
   width: 15px;
   height: 15px;
@@ -1066,6 +1070,7 @@ body .contenu {
   border-radius: 6px;
   cursor: pointer;
   margin-left: 20px;
+  margin-right: 150px;
   background: transparent;
 }
 .todolist .row-todolist label span::after {
@@ -1117,6 +1122,7 @@ body .contenu {
   text-decoration: underline;
   color: #c0c0c0;
   transition: 0.3s ease-out;
+  cursor: pointer;
 }
 .add-button a:hover {
   color: #9fc8b9;
@@ -1126,6 +1132,7 @@ body .contenu {
   margin: 0 0 0 auto;
   font-size: 30px;
   transform: translateY(3px);
+  cursor: pointer;
 }
 @media screen and (max-width: 800px) {
   .sup-button {
@@ -1139,6 +1146,11 @@ body .contenu {
 }
 .sup-button a:hover {
   color: #a03e3e;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out; /* Utilisez la propriété de transition pour définir la durée, le timing et le type d'animation */
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -110,10 +110,16 @@ suptodochecks.forEach(suptodocheck => {
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                // Suppression réussie, rafraîchir la structure HTML
-                suptodocheck.parentNode.remove();
+                // Suppression réussie, ajouter la classe pour l'animation
+                suptodocheck.parentNode.classList.add('fade-out');
+        
+                // Attendre la fin de l'animation avant de supprimer définitivement l'élément
+                suptodocheck.parentNode.addEventListener('transitionend', function () {
+                    suptodocheck.parentNode.remove();
+                });
             }
         };
+        
         xhr.send(param);
     });
 });

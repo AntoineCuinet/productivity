@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    $req  = $db->prepare("INSERT INTO routine (user_id, title, color, recursivity) VALUES (:user_id, :title, :color, :recursivity)");
+    $req  = $db->prepare("INSERT INTO routine (user_id, title, color, recursivity, create_at) VALUES (:user_id, :title, :color, :recursivity, NOW())");
     $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
     $req->bindValue(':title', $task, PDO::PARAM_STR);
     $req->bindValue(':color', $color, PDO::PARAM_STR);

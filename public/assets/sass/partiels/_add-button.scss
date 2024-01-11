@@ -11,6 +11,7 @@
         text-decoration : underline;
         color: $KS-color-font-dark;
         transition: 0.3s ease-out;
+        cursor: pointer;
 
         &:hover {
             color: $KS-color-tertiary;
@@ -22,6 +23,7 @@
     margin: 0 0 0 auto; 
     font-size: 30px;
     transform: translateY(3px);
+    cursor: pointer;
 
     @media screen and (max-width: $mq) {
         font-size: 20px;
@@ -36,4 +38,9 @@
             color: $KS-color-danger;
         }
     }
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out; /* Utilisez la propriété de transition pour définir la durée, le timing et le type d'animation */
 }
