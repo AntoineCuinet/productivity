@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <br>
 
     <div class="form-group">
-        <input type="color" name="color" value="#ffffff" class="color">
+        <input type="color" name="color" value="#9fc8b9" class="color">
         <i class='bx bxs-color-fill'></i>
         <span>Donne une couleur à t'as tâche</span>
     </div>

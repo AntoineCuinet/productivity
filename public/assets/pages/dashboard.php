@@ -95,17 +95,27 @@ function noteRating($note) {
     <h4><?= $title_dashboard; ?></h4>
     <br>
 
-    <?php 
-        $today = new DateTime();
-        $lastNoteDay = (count($notes) > 0) ? substr($notes[0]->create_at, 0, 10) : '';
+    <!-- routine -->
+    <div class="todolist">
+        <div class="redirect-lien">
+            <a href="./routine.php">Rentre une routine dès maintenant !</a>
+            <br><br><br>
 
-        if ($today->format('Y-m-d') !== $lastNoteDay) {
-            echo "<div class='redirect-lien'><a href='./noteOfTheDay.php'>Rentre t'as note du jour !</a></div><br>";
-        }
-    ?>
+            <?php
+            echo "<h3>Aujourd'hui tu dois : </h3><br>";
+            foreach ($routines as $routine) {
+                $recursivity = $routine->recursivity;
+                $currentDay = date('N');
 
-    <div class="redirect-lien">
-        <a href="./routine.php">Rentre une routine dès maintenant !</a>
+                if (strpos($recursivity, (string) $currentDay) !== false) {
+                    // Afficher la tâche
+                    echo '<div class="row-todolist">';
+                    echo '<div class="affichage-color" style="background-color: ' . $routine->color . ';"></div>';
+                    echo $routine->title . "</div><br>";
+                }
+            }
+            ?>
+        </div>
     </div>
     <br><br>
 
@@ -134,10 +144,20 @@ function noteRating($note) {
         }
         ?>
     </div>
+    <br>
 
 
 
     <!-- affichage notes -->
+    <div class="todolist">
+    <?php 
+        $today = new DateTime();
+        $lastNoteDay = (count($notes) > 0) ? substr($notes[0]->create_at, 0, 10) : '';
+
+        if ($today->format('Y-m-d') !== $lastNoteDay) {
+            echo "<div class='redirect-lien'><a href='./noteOfTheDay.php'>Rentre t'as note du jour !</a></div><br>";
+        }
+    ?>
     <?php
     if (!empty($notes)) {
         // Affichez chaque note à l'aide de la boucle foreach
@@ -153,6 +173,7 @@ function noteRating($note) {
         echo "<div class='redirect-lien'><p>Tu n'as pas encore rentré de note, <a href='./noteOfTheDay.php'>rentre t'as note du jour !</a></div>";
     }
     ?>
+    </div>
     <br><br><br>
 
 
@@ -197,8 +218,20 @@ function noteRating($note) {
                     }
 
 
-
-
+                    foreach ($routines as $routine) {
+                        $recursivity = $routine->recursivity;
+                        $inverse = 7 - $i;
+                        $currentDay = date('N');
+                        $inverseCurrentDay = 7 - $currentDay;
+                        if (strpos($recursivity, (string) ($inverse - $inverseCurrentDay)) !== false) {
+                            // Afficher la tâche
+                            //if (réalisé) afficher en vert
+                            //else afficher en rouge
+                            echo "<td style='background: #1e6549ed; color: #FFFFF0;'>" . "ok" . "</td>";
+                        } else {
+                            echo "<td></td>";
+                        }
+                    }
                     echo "</tr>";
                 }
                 ?>
