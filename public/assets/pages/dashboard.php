@@ -220,10 +220,12 @@ function noteRating($note) {
 
                     foreach ($routines as $routine) {
                         $recursivity = $routine->recursivity;
-                        $inverse = 7 - $i;
                         $currentDay = date('N');
-                        $inverseCurrentDay = 7 - $currentDay;
-                        if (strpos($recursivity, (string) ($inverse - $inverseCurrentDay)) !== false) {
+                        $inverse = 8 - $i;
+                        $inverseCurrentDay = 9 - $currentDay;
+
+                        $cycleValue = ($inverseCurrentDay + $inverse - 1) % 7 + 1;
+                        if (strpos($recursivity, (string) $cycleValue) !== false) {
                             // Afficher la tâche
                             //if (réalisé) afficher en vert
                             //else afficher en rouge
