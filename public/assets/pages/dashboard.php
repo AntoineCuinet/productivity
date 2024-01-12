@@ -123,8 +123,8 @@ function noteRating($note) {
                 $checked = ($todo->realized_at) ? " checked" : "";
                 echo '<div class="row-todolist">';
                 echo '<div class="affichage-color" style="background-color: ' . $todo->color . ';"></div>';
-                echo '<p >'.$todo->title.' </p>';
-                echo '<label><input class="todocheck" dbid="'.$todo->todo_id.'" type="checkbox" name="todo"'.$checked.'><span></span></label>';
+                echo '<label for="todo'.$todo->todo_id.'" class="todo-title ' . ($checked ? 'checked' : '') . '">' . $todo->title . '</label>';
+                echo '<div class="todocheck-label"><input class="todocheck" dbid="'.$todo->todo_id.'" type="checkbox" name="todo" id="todo'.$todo->todo_id.'"><span></span></div>';
                 echo '<div class="sup-button" dbidsup="'.$todo->todo_id.'"><a  ><i class="bx bx-minus-circle"></i></a></div>';
                 echo "<br>";
                 echo ' </div>';

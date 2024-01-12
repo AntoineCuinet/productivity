@@ -1048,12 +1048,19 @@ body .contenu {
   border-radius: 50%;
   margin-right: 10px;
 }
-.todolist .row-todolist label {
+.todolist .row-todolist .todo-title {
+  margin-left: 10px;
+  transition: 0.3s ease-out !important;
+}
+.todolist .row-todolist .todo-title.checked {
+  text-decoration: line-through;
+}
+.todolist .row-todolist .todocheck-label {
   position: relative;
   width: 25px;
   height: 25px;
 }
-.todolist .row-todolist label input {
+.todolist .row-todolist .todocheck-label input {
   width: 100%;
   height: 100%;
   margin-left: 20px;
@@ -1062,7 +1069,7 @@ body .contenu {
   cursor: pointer;
   z-index: 1;
 }
-.todolist .row-todolist label span {
+.todolist .row-todolist .todocheck-label span {
   display: block;
   width: 100%;
   height: 100%;
@@ -1073,8 +1080,9 @@ body .contenu {
   margin-left: 20px;
   margin-right: 150px;
   background: transparent;
+  filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.292));
 }
-.todolist .row-todolist label span::after {
+.todolist .row-todolist .todocheck-label span::after {
   content: "";
   position: absolute;
   left: 10px;
@@ -1085,9 +1093,9 @@ body .contenu {
   border-width: 0 4px 4px 0;
   transform: rotate(45deg);
   opacity: 0;
-  transition: 0.5s ease-out;
+  transition: 0.3s ease-out;
 }
-.todolist .row-todolist label input:checked ~ span::after {
+.todolist .row-todolist .todocheck-label input:checked ~ span::after {
   width: 15px;
   height: 25px;
   opacity: 1;
@@ -1124,6 +1132,7 @@ body .contenu {
   color: #c0c0c0;
   transition: 0.3s ease-out;
   cursor: pointer;
+  filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.292));
 }
 .add-button a:hover {
   color: #9fc8b9;
@@ -1133,6 +1142,7 @@ body .contenu {
   margin: 0 0 0 auto;
   font-size: 30px;
   transform: translateY(3px);
+  filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.292));
   cursor: pointer;
 }
 @media screen and (max-width: 800px) {

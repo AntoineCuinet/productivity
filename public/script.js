@@ -88,16 +88,44 @@ function checkMaxMin(num) {
 //for to-do-list
 const todochecks = document.querySelectorAll(".todocheck");
 todochecks.forEach(todocheck => {
+    const todoContainer = todocheck.closest('.row-todolist');
+    const todoTitle = todoContainer.querySelector('.todo-title');
+    let id = todocheck.getAttribute('dbid');
+
+    // Mettre à jour l'état de la checkbox en fonction de la classe 'checked' du texte barré
+    todocheck.checked = todoTitle.classList.contains('checked');
+
     todocheck.addEventListener('click', () => {
-        let id = todocheck.getAttribute('dbid');
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'toDoEvent.php');
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         let param = "id=" + id;
         param += (todocheck.checked) ? "&checked" : "";
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+            }
+        };
+
+        // Mettre à jour la classe 'checked' du texte barré en fonction de l'état de la checkbox
+        todoTitle.classList.toggle('checked', todocheck.checked);
+
         xhr.send(param);
     });
+
+    // Ajouter un écouteur pour activer/désactiver la classe 'checked' du texte barré
+    todoTitle.addEventListener('click', () => {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'toDoEvent.php');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        let param = "id=" + id;
+        param += (todocheck.checked) ? "&checked" : "";
+        todoTitle.classList.toggle('checked', todocheck.checked);
+        //xhr.send(param);
+    });
 });
+
+
 const suptodochecks = document.querySelectorAll(".sup-button");
 suptodochecks.forEach(suptodocheck => {
     suptodocheck.addEventListener('click', () => {

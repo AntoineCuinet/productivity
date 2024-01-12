@@ -12,6 +12,7 @@
         color: $KS-color-font-dark;
         transition: 0.3s ease-out;
         cursor: pointer;
+        filter: $drop-shadow;
         
 
         &:hover {
@@ -24,6 +25,7 @@
     margin: 0 0 0 auto; 
     font-size: 30px;
     transform: translateY(3px);
+    filter: $drop-shadow;
     cursor: pointer;
 
     @media screen and (max-width: $mq) {

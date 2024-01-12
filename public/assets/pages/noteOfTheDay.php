@@ -85,10 +85,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <br>
 
-        <label for="">Ton poids: </label>
-        <div class="form-group input-number">
+        <label for="weight">Ton poids: </label>
+        <div class="input-number">
             <i class='bx bx-minus'></i>
-            <input type="number" name="weight" value="60" placeholder="Kg" min="10" max="200" step="0.001" class="num-input">
+            <input id="weight" type="number" name="weight" value="60" placeholder="Kg" min="10" max="200" step="0.001" class="num-input">
             <i class='bx bx-plus'></i>
             <i class='bx bx-tachometer'></i>
         </div>
