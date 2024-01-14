@@ -435,6 +435,22 @@ body .contenu {
   }
 }
 
+.link-head-dashboard {
+  transform: rotate(-10deg);
+  padding: 10px 20px;
+  margin-right: 20px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #9fc8b9, #5c8374);
+}
+.link-head-dashboard a {
+  text-decoration: none;
+  transform: none;
+}
+
+.repositionne-link {
+  padding-top: 5px;
+}
+
 .login-container {
   display: flex;
   justify-content: center;
@@ -826,10 +842,9 @@ body .contenu {
 .dashboard-container {
   width: 100%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   height: auto;
   min-height: 100vh;
-  padding: 0 5%;
   padding-top: 150px;
 }
 @media screen and (max-width: 800px) {
@@ -839,6 +854,26 @@ body .contenu {
 }
 .dashboard-container h4 {
   padding-left: 5%;
+}
+.dashboard-container .dashboard-init {
+  width: 100%;
+  display: flex;
+  justify-content: space-around; /* Alignement à égale distance */
+  margin-bottom: 100px;
+}
+.dashboard-container .dashboard-init .time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-container .dashboard-init .time .text-time-home {
+  font-family: "Gemunu Libre", sans-serif;
+  font-size: 90px;
+}
+.dashboard-container .dashboard-aera {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(10rem, 50%), 1fr));
+  gap: 3%;
 }
 
 .textaera-container {

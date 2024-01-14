@@ -225,4 +225,25 @@ const myChart = new Chart(ctx, {
 
 
 
+
+//time
+const textHome = document.querySelector(".text-time-home");
+
+function getCurrentTime() {
+    const now = new Date();
+    const currentTime = now.toLocaleTimeString();
+
+    textHome.innerText = `${currentTime}`;
+    if (window.location.href.endsWith("./assets/pages/dashboard.php")) {
+        // Vous pouvez également mettre à jour le texte ici si nécessaire
+        //textHome.innerText = `${days}j ${hours}h ${minutes}m ${seconds}s`;
+    }
+}
+
+getCurrentTime();
+const currentTimeInterval = setInterval(() => {
+    getCurrentTime();
+}, 1000);
+
+
 });

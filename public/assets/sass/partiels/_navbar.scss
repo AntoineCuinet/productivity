@@ -232,3 +232,20 @@
         }
     }
 }
+
+.link-head-dashboard {
+    transform: rotate(-10deg);
+    // position: absolute;
+    padding: 10px 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, $KS-color-tertiary, $KS-color-secondary);
+
+    a {
+        text-decoration: none;
+        transform: none;
+    }
+}
+.repositionne-link {
+    padding-top: 5px;
+}

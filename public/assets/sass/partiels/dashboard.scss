@@ -1,11 +1,12 @@
 .dashboard-container {
     width: 100%;
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     height: auto;
     min-height: 100vh;
-    padding: 0 5%;
+    // padding: 0 5%;
     padding-top: 150px;
+    
 
     @media screen and (max-width: $mq) {
         padding-top: 100px;
@@ -13,5 +14,33 @@
 
     h4 {
         padding-left: 5%;
+    }
+
+    .dashboard-init {
+        width: 100%;
+        display: flex;
+        justify-content: space-around; /* Alignement à égale distance */
+        margin-bottom: 100px;
+
+
+        .time {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .text-time-home {
+                font-family: 'Gemunu Libre', sans-serif;
+                // font-family: 'Orbitron', sans-serif;
+                font-size: 90px;
+            }
+        }
+    }
+
+    .dashboard-aera {
+        display: grid;
+        // grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(10rem, 50%), 1fr));
+        gap: 3%;
+
+        
     }
 }
