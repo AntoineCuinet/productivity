@@ -68,32 +68,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="form-group">
         <div class="todolist">
             <div class="row-todolist routine-todolist">
-                <p>Lundi</p>
-                <label style="display: inline-block;" for="text-todo-1"><input id="text-todo-'.$j.'" class="todocheck" type="checkbox" name="d1"><span></span></label>
+                <label class="todo-title" style="display: inline-block;" for="text-todo-1">Lundi</label>
+                <div class="todocheck-label"><input id="text-todo-1" type="checkbox" name="d1"><span></span></div>
             </div>
             <div class="row-todolist routine-todolist">
-                <p>Mardi</p>
-                <label style="display: inline-block;" for="text-todo-1"><input id="text-todo-'.$j.'" class="todocheck" type="checkbox" name="d2"><span></span></label>
+                <label class="todo-title" style="display: inline-block;" for="text-todo-2">Mardi</label>
+                <div class="todocheck-label"><input id="text-todo-2" type="checkbox" name="d2"><span></span></div>
             </div>
             <div class="row-todolist routine-todolist">
-                <p>Mercredi</p>
-                <label style="display: inline-block;" for="text-todo-1"><input id="text-todo-'.$j.'" class="todocheck" type="checkbox" name="d3"><span></span></label>
+                <label class="todo-title" style="display: inline-block;" for="text-todo-3">Mercredi</label>
+                <div class="todocheck-label"><input id="text-todo-3" type="checkbox" name="d3"><span></span></div>
             </div>
             <div class="row-todolist routine-todolist">
-                <p>Jeudi</p>
-                <label style="display: inline-block;" for="text-todo-1"><input id="text-todo-'.$j.'" class="todocheck" type="checkbox" name="d4"><span></span></label>
+                <label class="todo-title" style="display: inline-block;" for="text-todo-4">Jeudi</label>
+                <div class="todocheck-label"><input id="text-todo-4" type="checkbox" name="d4"><span></span></div>
             </div>
             <div class="row-todolist routine-todolist">
-                <p>Vendredi</p>
-                <label style="display: inline-block;" for="text-todo-1"><input id="text-todo-'.$j.'" class="todocheck" type="checkbox" name="d5"><span></span></label>
+                <label class="todo-title" style="display: inline-block;" for="text-todo-5">Vendredi</label>
+                <div class="todocheck-label"><input id="text-todo-5" type="checkbox" name="d5"><span></span></div>
             </div>
             <div class="row-todolist routine-todolist">
-                <p>Samedi</p>
-                <label style="display: inline-block;" for="text-todo-1"><input id="text-todo-'.$j.'" class="todocheck" type="checkbox" name="d6"><span></span></label>
+                <label class="todo-title" style="display: inline-block;" for="text-todo-6">Samedi</label>
+                <div class="todocheck-label"><input id="text-todo-6" type="checkbox" name="d6"><span></span></div>
             </div>
             <div class="row-todolist routine-todolist">
-                <p>Dimanche</p>
-                <label style="display: inline-block;" for="text-todo-1"><input id="text-todo-'.$j.'" class="todocheck" type="checkbox" name="d7"><span></span></label>
+                <label class="todo-title" style="display: inline-block;" for="text-todo-7">Dimanche</label>
+                <div class="todocheck-label"><input id="text-todo-7" type="checkbox" name="d7"><span></span></div>
             </div>
         </div>
     </div>

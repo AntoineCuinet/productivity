@@ -1103,12 +1103,13 @@ body .contenu {
 .todolist .routine-todolist {
   border-bottom: none;
   justify-content: space-between;
+  margin-right: 30px;
 }
-.todolist .routine-todolist label input {
-  transform: translateX(-12px);
+.todolist .routine-todolist div input {
+  margin-right: 30px;
 }
-.todolist .routine-todolist label span {
-  transform: translateY(2px);
+.todolist .routine-todolist div span {
+  margin-top: 10px;
 }
 
 .center {

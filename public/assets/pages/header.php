@@ -41,6 +41,7 @@
                         <a href="./login.php">Connexion</a>
                     <?php else: ?>
                         <!-- <a href="../../index.php">Accueil</a> -->
+                        <a href="./begining_account.php"><i class='bx bx-line-chart'></i></a>
                         <a href="./dashboard.php">Mon espace</a>
                         <a class="param" href="./settings.php">Paramètres</a>
 

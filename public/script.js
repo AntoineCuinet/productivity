@@ -152,4 +152,77 @@ suptodochecks.forEach(suptodocheck => {
     });
 });
 
+
+
+
+
+
+//test graphique 
+// Préparer les labels et les données pour Chart.js
+jsonData.reverse();
+var labels = jsonData.map(function(entry) {
+    return entry.jour;
+});
+
+var data = jsonData.map(function(entry) {
+    return entry.poids;
+});
+
+// Créer le graphique avec Chart.js
+const moyennePoids = data.reduce((acc, poids) => acc + poids, 0) / data.length;
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Suivie de poids (Kg)',
+            data: data,
+            fill: true,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+            tension: 0.1,
+            pointBackgroundColor: 'rgba(75, 192, 192, 1)'
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#c0c0c0'
+                }
+            }
+        },
+        scales: {
+            y: {
+                ticks: {
+                    color: '#c0c0c0'
+                },
+                grid: {
+                    color: '#c0c0c036'
+                },
+                //beginAtZero: true,
+                suggestedMin: moyennePoids - 10,
+                suggestedMax: moyennePoids + 10
+            },
+            x: {
+                ticks: {
+                    color: '#c0c0c0'
+                },
+                grid: {
+                    color: '#c0c0c036' 
+                }
+            }
+        },
+        elements: {
+            point: {
+                pointBorderColor: 'rgba(75, 192, 192, 1)'
+            }
+        }
+    }
+});
+
+
+
 });

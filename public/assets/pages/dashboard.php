@@ -87,6 +87,26 @@ function noteRating($note) {
 }
 
 
+
+//test graphique
+$weightTab = array();
+$dateTab = array();
+foreach ($notes as $note) {
+    $weightTab[] = $note->weight;
+    $noteCreate_at = new DateTime($note->create_at);
+    $dateTab[] = $noteCreate_at->format('m-d');
+}
+$data = array();
+
+for ($i = 0; $i < count($weightTab); $i++) {
+    // Ajoutez chaque paire poids/jour au tableau $data
+    $data[] = array("jour" => $dateTab[$i], "poids" => $weightTab[$i]);
+}
+
+// Convertir les données en format JSON
+$jsonData = json_encode($data);
+
+
 ?>
 
 <?php include('header.php'); ?>
@@ -106,12 +126,16 @@ function noteRating($note) {
             foreach ($routines as $routine) {
                 $recursivity = $routine->recursivity;
                 $currentDay = date('N');
+                $checked = ($routine->realized_at) ? " checked" : "";
 
                 if (strpos($recursivity, (string) $currentDay) !== false) {
                     // Afficher la tâche
                     echo '<div class="row-todolist">';
                     echo '<div class="affichage-color" style="background-color: ' . $routine->color . ';"></div>';
-                    echo $routine->title . "</div><br>";
+                    
+                    echo '<label for="todo'.$routine->routine_id.'" class="todo-title ' . ($checked ? 'checked' : '') . '">' . $routine->title . '</label>';
+                    echo '<div class="todocheck-label"><input class="todocheck" dbid="'.$routine->routine_id.'" type="checkbox" name="todo" id="todo'.$routine->routine_id.'"><span></span></div>';
+                    echo '</div>';
                 }
             }
             ?>
@@ -176,7 +200,13 @@ function noteRating($note) {
     </div>
     <br><br><br>
 
-
+    <div class="chart-container todolist">
+        <canvas id="myChart" aria-label="chart" role="img"></canvas>
+        <script>
+            var jsonData = <?php echo $jsonData; ?>;
+        </script>
+    </div>
+    <br><br>
 
 
 
@@ -222,14 +252,15 @@ function noteRating($note) {
                         $recursivity = $routine->recursivity;
                         $currentDay = date('N');
                         $inverse = 8 - $i;
-                        $inverseCurrentDay = 9 - $currentDay;
+                        $inverseCurrentDay = 8 - $currentDay +1;
 
-                        $cycleValue = ($inverseCurrentDay + $inverse - 1) % 7 + 1;
+                        $cycleValue = ($inverseCurrentDay + $inverse + 8) % 7 +1;
                         if (strpos($recursivity, (string) $cycleValue) !== false) {
-                            // Afficher la tâche
-                            //if (réalisé) afficher en vert
-                            //else afficher en rouge
-                            echo "<td style='background: #1e6549ed; color: #FFFFF0;'>" . "ok" . "</td>";
+                            if ($routine->realized_at) {
+                                echo "<td style='background: #1e6549ed; color: #FFFFF0;'>" . "ok" . "</td>";
+                            } else {
+                                echo "<td style='background: #a61c1cec; color: #FFFFF0;'></td>";
+                            }
                         } else {
                             echo "<td></td>";
                         }
@@ -240,10 +271,11 @@ function noteRating($note) {
             </tbody>
         </table>
     </div>
-    <br><br><br>
+    <br><br>
 
 
 
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <?php include('./footer.php'); ?>
