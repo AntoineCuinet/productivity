@@ -126,6 +126,53 @@ todochecks.forEach(todocheck => {
 });
 
 
+//routine
+const routinechecks = document.querySelectorAll(".routinecheck");
+routinechecks.forEach(routinecheck => {
+    const todoContainer = routinecheck.closest('.row-todolist');
+    const todoTitle = todoContainer.querySelector('.routine-title');
+    let id = routinecheck.getAttribute('dbid');
+
+    // Mettre à jour l'état de la checkbox en fonction de la classe 'checked' du texte barré
+    routinecheck.checked = todoTitle.classList.contains('checked');
+
+    routinecheck.addEventListener('click', () => {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'routineEvent.php');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        let param = "id=" + id;
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Suppression réussie, ajouter la classe pour l'animation
+                routinechecks.parentNode.classList.add('fade-out');
+        
+                // Attendre la fin de l'animation avant de supprimer définitivement l'élément
+                routinechecks.parentNode.addEventListener('transitionend', function () {
+                    routinechecks.parentNode.remove();
+                });
+            }
+        };
+
+        // Mettre à jour la classe 'checked' du texte barré en fonction de l'état de la checkbox
+        todoTitle.classList.toggle('checked', routinecheck.checked);
+
+        xhr.send(param);
+    });
+
+    // Ajouter un écouteur pour activer/désactiver la classe 'checked' du texte barré
+    todoTitle.addEventListener('click', () => {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'routine.php');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        let param = "id=" + id;
+        todoTitle.classList.toggle('checked', routinecheck.checked);
+        //xhr.send(param);
+    });
+});
+
+
+
 const suptodochecks = document.querySelectorAll(".sup-button");
 suptodochecks.forEach(suptodocheck => {
     suptodocheck.addEventListener('click', () => {

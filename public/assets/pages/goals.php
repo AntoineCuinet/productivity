@@ -24,13 +24,16 @@ $aujourdhuiFormat = $joursFrancais[$aujourdhui->format('D')] . ' ' . $aujourdhui
 
 
 //requete select
-$req = $db->prepare("SELECT * FROM objective WHERE user_id = :user_id");
+$req = $db->prepare("SELECT * FROM objective WHERE user_id = :user_id LIMIT 1");
 $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
 $req->execute();
 $objectives = $req->fetchAll();
-
 foreach ($objectives as $objective) {
     $longTermeValue = $objective->longTerme;
+    $moyenTermeValue = $objective->moyenTerme;
+    $pourquoiValue = $objective->pourquoi;
+    $redouteValue = $objective->redoute;
+    $contratValue = $objective->contrat;
 }
 
 
@@ -52,14 +55,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrat = verifyInput($_POST["contrat"]);
 
 
-    $req  = $db->prepare("INSERT INTO objective (user_id, longTerme, moyenTerme, pourquoi, redoute, contrat) VALUES (:user_id, :longTerme, :moyenTerme, :pourquoi, :redoute, :contrat)");
+    $req  = $db->prepare("UPDATE objective SET
+        longTerme = :longTerme,
+        moyenTerme = :moyenTerme,
+        pourquoi = :pourquoi,
+        redoute = :redoute,
+        contrat = :contrat
+        WHERE user_id = :user_id"
+    );
     $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
     $req->bindValue(':longTerme', $longTerme, PDO::PARAM_STR);
     $req->bindValue(':moyenTerme', $moyenTerme, PDO::PARAM_STR);
     $req->bindValue(':pourquoi', $pourquoi, PDO::PARAM_STR);
     $req->bindValue(':redoute', $redoute, PDO::PARAM_STR);
     $req->bindValue(':contrat', $contrat, PDO::PARAM_STR);
-    //$req->execute();
+    $req->execute();
 
     header('Location: dashboard.php');
     exit();
@@ -81,7 +91,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <br>
             <div class="textaera-container">
                 <textarea class="textarea" id="long-terme" name="long-terme" autocomplete="off" placeholder="Entre t'on objectif long terme (sur une année), il correspond au but que tu t'es fixé !" maxlength="1000" rows="5" cols="33" spellcheck="true" required>
-<?php $longTermeValue[1]; ?></textarea>
+<?= $longTermeValue; ?></textarea>
             </div>
         </div>
         <br><br>
@@ -93,7 +103,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <br>
             <div class="textaera-container">
                 <textarea class="textarea" id="moyen-terme" name="moyen-terme" autocomplete="off" placeholder="Entre t'on objectif moyen terme (sur 90jours)" maxlength="1000" rows="5" cols="33" spellcheck="true" required>
-<?php $notes[2]; ?></textarea>
+<?= $moyenTermeValue; ?></textarea>
             </div>
         </div>
         <br><br>
@@ -105,7 +115,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <br>
             <div class="textaera-container">
                 <textarea class="textarea" id="pourquoi" name="pourquoi" autocomplete="off" placeholder="Ecrit le pourquoi qui t'as amené ici" maxlength="1000" rows="5" cols="33" spellcheck="true" required>
-<?php $notes[2]; ?></textarea>
+<?= $pourquoiValue ?></textarea>
             </div>
         </div>
         <br><br>
@@ -117,7 +127,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <br>
             <div class="textaera-container">
                 <textarea class="textarea" id="redoute" name="redoute" autocomplete="off" placeholder="Ecrit ce que tu ne veux pas être" maxlength="1000" rows="5" cols="33" spellcheck="true" required>
-<?php $notes[2]; ?></textarea>
+<?= $redouteValue ?></textarea>
             </div>
         </div>
         <br><br>
@@ -128,7 +138,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <br>
             <div class="textaera-container">
                 <textarea class="textarea" id="contrat" name="contrat" autocomplete="off" placeholder="Ecrit le contrat que tu ne romperas jamais et qui te rendra INVAINCIBLE." maxlength="5000" rows="5" cols="33" spellcheck="true" required>
-<?php $notes[2]; ?></textarea>
+<?= $contratValue ?></textarea>
             </div>
         </div>
         <br><br>

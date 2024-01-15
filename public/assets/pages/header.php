@@ -20,6 +20,7 @@ $currentScript = basename($_SERVER['SCRIPT_FILENAME']);
 </head>
 <body>
     <header>
+    <?php if ($currentScript !== 'begining_account.php'): ?>
         <!-- menu principal -->
         <nav id="navbar">
             <div class="first-container">
@@ -31,11 +32,16 @@ $currentScript = basename($_SERVER['SCRIPT_FILENAME']);
                     <span><?= $title; ?></span>
                 </a>
                 <?php else: ?>
-                    
-                    <div class="link-head-dashboard"><a class="" href="dashboard.php">Global</a></div>
-                    <div class="link-head-dashboard"><a href="dashboard.php">Weight</a></div>
-                    <div class="link-head-dashboard"><a href="dashboard.php">Objective</a></div>
-                    <div class="link-head-dashboard"><a href="dashboard.php">To-do</a></div>
+                    <?php if ($currentScript !== 'dashboard.php'): ?>
+                        <a href="./dashboard.php">Mon espace</a>
+                    <?php else: ?>
+                        <div class="link-head-dashboard"><a class="" href="dashboard.php">Général</a></div>
+                        <div class="link-head-dashboard"><a href="dashboard.php">Poids</a></div>
+                        <?php
+                        foreach($routines as $routine) {
+                            echo '<div class="link-head-dashboard"><a href="dashboard.php">'. $routine->title .'</a></div>';
+                        } 
+                    endif; ?>
                 <?php endif; ?>
 
                 <!-- hamburger -->
@@ -56,9 +62,6 @@ $currentScript = basename($_SERVER['SCRIPT_FILENAME']);
                     <?php else: ?>
                         <!-- <a href="../../index.php">Accueil</a> -->
                         <a class="repositionne-link" href="./goals.php"><i class='bx bx-line-chart'></i></a>
-                        <?php if ($currentScript !== 'dashboard.php'): ?>
-                            <a href="./dashboard.php">Mon espace</a>
-                        <?php endif; ?>
                         <a class="param" href="./settings.php">Paramètres</a>
 
                         <?php if(!empty($user->file)): ?>
@@ -72,4 +75,5 @@ $currentScript = basename($_SERVER['SCRIPT_FILENAME']);
                 </div>
             </div>
         </nav>
+    <?php endif; ?>
     </header>

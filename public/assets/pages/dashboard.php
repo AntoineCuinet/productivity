@@ -22,10 +22,22 @@ $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
 $req->execute();
 $todos = $req->fetchAll();
 
-$req = $db->prepare("SELECT * FROM routine WHERE user_id = :user_id");
+$req = $db->prepare("SELECT * FROM routine LEFT JOIN realized ON routine.routine_id = realized.routine_id WHERE user_id = :user_id");
 $req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
 $req->execute();
 $routines = $req->fetchAll();
+
+$req = $db->prepare("
+    SELECT * FROM routine
+    WHERE user_id = :user_id 
+    AND (routine_id) NOT IN (
+        SELECT routine_id FROM realized
+        WHERE realized_at = CURRENT_DATE()
+    )
+");
+$req->bindValue(':user_id', $user->id, PDO::PARAM_INT);
+$req->execute();
+$notRealized = $req->fetchAll();
 
 
 
@@ -165,6 +177,25 @@ $jsonData = json_encode($data);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
         <!-- routine -->
         <div class="todolist">
             <div class="redirect-lien">
@@ -173,18 +204,17 @@ $jsonData = json_encode($data);
 
                 <?php
                 echo "<h3>Aujourd'hui tu dois : </h3><br>";
-                foreach ($routines as $routine) {
+                foreach ($notRealized as $routine) {
                     $recursivity = $routine->recursivity;
                     $currentDay = date('N');
-                    $checked = ($routine->realized_at) ? " checked" : "";
 
                     if (strpos($recursivity, (string) $currentDay) !== false) {
                         // Afficher la tâche
                         echo '<div class="row-todolist">';
                         echo '<div class="affichage-color" style="background-color: ' . $routine->color . ';"></div>';
                         
-                        echo '<label for="todo'.$routine->routine_id.'" class="todo-title ' . ($checked ? 'checked' : '') . '">' . $routine->title . '</label>';
-                        echo '<div class="todocheck-label"><input class="todocheck" dbid="'.$routine->routine_id.'" type="checkbox" name="todo" id="todo'.$routine->routine_id.'"><span></span></div>';
+                        echo '<label for="routine'.$routine->routine_id.'" class="routine-title' . ($checked ? 'checked' : '') . '">' . $routine->title . '</label>';
+                        echo '<div class="todocheck-label"><input class="routinecheck" dbid="'.$routine->routine_id.'" type="checkbox" name="routine" id="routine'.$routine->routine_id.'"><span></span></div>';
                         echo '</div>';
                     }
                 }
@@ -269,7 +299,7 @@ $jsonData = json_encode($data);
                     foreach ($routines as $routine) {
                         $recursivity = $routine->recursivity;
                         $currentDay = date('N');
-                        $inverse = 10 - $i;
+                        $inverse = 5 - $i;
                         $inverseCurrentDay = 8 - $currentDay +1;
 
                         $cycleValue = ($inverseCurrentDay + $inverse + 8) % 7 +1;
