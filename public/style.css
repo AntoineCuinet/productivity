@@ -218,6 +218,10 @@ body .contenu {
 .footer-index .contenu-footer .bloc ul li a:hover {
   color: #011223;
 }
+.footer-index .copyright {
+  display: flex;
+  justify-content: center;
+}
 
 #navbar {
   position: fixed;

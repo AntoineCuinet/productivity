@@ -4,7 +4,9 @@
 </div>
 
 <footer>
-
+    <div class="copyright">
+        <p><?= $title; ?> © 2024</p>
+    </div>
 </footer>
 
 <!-- script.js -->

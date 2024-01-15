@@ -33,7 +33,7 @@ $currentScript = basename($_SERVER['SCRIPT_FILENAME']);
                 </a>
                 <?php else: ?>
                     <?php if ($currentScript !== 'dashboard.php'): ?>
-                        <a href="./dashboard.php">Mon espace</a>
+                        <div class="link-head-dashboard"><a href="./dashboard.php">Mon espace</a></div>
                     <?php else: ?>
                         <div class="link-head-dashboard"><a class="" href="dashboard.php">Général</a></div>
                         <div class="link-head-dashboard"><a href="dashboard.php">Poids</a></div>

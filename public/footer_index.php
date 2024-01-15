@@ -8,11 +8,18 @@
     <footer class="footer-index">
         <div class="contenu-footer">
             <div class="bloc footer-info">
-                <h3>Informations</h3>
+                <h3>Liens pratiques</h3>
                 <ul>
-                    <li><p><span>Lieu:</span> université de Franche-Comté, Besançon</p></li>
-                    <li><p><span>Jour:</span> mercredi 13 mars 2024</p></li>
-                    <li><p><span>Horaires:</span> de 14h à 18h</p></li>
+                    <li><a href="./assets/pages/login.php">Connexion</a></li>
+                    <li><a href="./assets/pages/inscription.php">Inscription</a></li>
+                </ul>
+            </div>
+
+            <div class="bloc footer-info">
+                <h3>Nous contacter</h3>
+                <ul>
+                    <li><a href="mailto:tristan.amiotte-suchet@edu.univ-fcomtefr">support@kirsao.fr</a></li>
+                    <!-- <li><a href="./assets/pages/inscription.php">Inscription</a></li> -->
                 </ul>
             </div>
 
@@ -25,13 +32,17 @@
             </div> -->
 
             <div class="bloc footer-mention">
-                <h3>À propos</h3>
+                <h3>En savoir plus</h3>
                 <ul>
                     <li><a href="./assets/pages/mentions.php">Mentions légales</a></li>
                     <li><a href="./assets/pages/cookies.php">Cookies</a></li>
                 </ul>
             </div>
         </div>
+        <div class="copyright">
+            <p><?= $title_page; ?> © 2024</p>
+        </div>
+        <br>
     </footer>
 
     <!-- script.js -->
