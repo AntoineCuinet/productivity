@@ -81,7 +81,7 @@ $description_page = 'Page d\'accueil du site';
             </div>
             <h2 class="titre-page"><?= $title_page; ?></h2>
             <br><br><br><br><br><br>
-            <h4>Transformez vos rêves en réalité avec <?= $title_page; ?>, l'application ultime de suivi et d'accomplissement personnel. Atteignez vos objectifs, cultivez de saines routines, et tracez votre parcours vers une vie épanouissante, tout en profitant d'une expérience simple, élégante et professionnelle.</h4>
+            <h3>Transformez vos rêves en réalité avec <?= $title_page; ?>, l'application ultime de suivi et d'accomplissement personnel. Atteignez vos objectifs, cultivez de saines routines, et tracez votre parcours vers une vie épanouissante, tout en profitant d'une expérience simple, élégante et professionnelle.</h3>
             <br><br><br>
 
             <p><?= $title_page; ?> est bien plus qu'une simple application, c'est votre compagnon dédié à la concrétisation de vos projets et à l'amélioration de votre bien-être. 

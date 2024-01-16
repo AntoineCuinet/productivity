@@ -8,6 +8,8 @@
         text-align: center;
         perspective: 2500px;
 
+
+
         .titre-page {
             padding: 150px 0 0 0;
         }
@@ -20,7 +22,8 @@
             transform: translateY(-50px);
 
             h1 {
-                font-size: 20vw;
+                font-size: 15vw;
+                text-align: center;
                 text-transform: uppercase;
                 font-family:Arial, Helvetica, sans-serif;
                 background-clip: text;
@@ -37,8 +40,8 @@
                 -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
 
                 @media (min-width: $mq) {
-                      font-size: 150px;
-                      transform: translateY(-20px);
+                      font-size: 130px;
+                      //transform: translateY(-20px);
                   }
             }
         }
@@ -64,6 +67,7 @@
         }
 
         h2 {
+            padding: 30px 10%;
             position: relative;
             z-index: 1;
             letter-spacing: 3px;
@@ -72,12 +76,13 @@
 
         h3,
         h4 {
-            text-align: left;
-            padding: 0 0 0 15px;
+            padding: 20px 5%;
+            text-align: justify;
             font-weight: bold;
         }
         h4 {
             padding: 0 0 0 30px;
+            text-align: left;
         }
 
 

@@ -19,7 +19,7 @@ $joursFrancais = [
     'Sat' => 'Samedi',
     'Sun' => 'Dimanche',
 ];
-$aujourdhui = new DateTime();
+$aujourdhui = new DateTime('now', new DateTimeZone('Europe/Paris'));
 $aujourdhuiFormat = $joursFrancais[$aujourdhui->format('D')] . ' ' . $aujourdhui->format('d/m/Y') . ' à ' . $aujourdhui->format('H:i.');
 
 
@@ -143,11 +143,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <br><br>
 
-
-        <p><span>Je sousigné <?= $user->lastname; ?> <?= $user->firstname; ?> reconnaît avoir lu, compris et accepté les termes de cet Engagement Personnel envers les Objectifs Fixés.</span></p>
-        <p>Date: le <?= $aujourdhuiFormat; ?></p>
+        <div class="obj-container">
+            <p><span>Je sousigné <?= $user->lastname; ?> <?= $user->firstname; ?> reconnaît avoir lu, compris et accepté les termes de cet Engagement Personnel envers les Objectifs Fixés.</span></p>
+            <p>Date: le <?= $aujourdhuiFormat; ?></p>
+        </div>
         <br>
-        <input type="submit" value="Signer" name="valider" class="btn btn-succes">
+        <input type="submit" value="Signer" name="valider" class="btn btn-succes btn-margin-left">
     </form>
     <br><br>
 </div>

@@ -19,7 +19,7 @@ $joursFrancais = [
     'Sat' => 'Samedi',
     'Sun' => 'Dimanche',
 ];
-$aujourdhui = new DateTime();
+$aujourdhui = new DateTime('now', new DateTimeZone('Europe/Paris'));
 $aujourdhuiFormat = $joursFrancais[$aujourdhui->format('D')] . ' ' . $aujourdhui->format('d/m/Y') . ' à ' . $aujourdhui->format('H:i.');
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -58,7 +58,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php include('header.php'); ?>
 
-<div class="dashboard-container">
+<section class="section">
+    <div class="section-container">
     <h4><?= $user->firstname; ?>, toute l'équipe te souhaite la bienvenu sur <?= $title; ?></h4>
     <br>
     <p>La première étape permettant d'évoluer est de planifier ses objectifs.</p>
@@ -138,12 +139,14 @@ Cet engagement entre en vigueur à la date de sa signature et reste en vigueur j
         </div>
         <br><br>
 
-
-        <p><span>Je sousigné <?= $user->lastname; ?> <?= $user->firstname; ?> reconnaît avoir lu, compris et accepté les termes de cet Engagement Personnel envers les Objectifs Fixés.</span></p>
-        <p>Date: le <?= $aujourdhuiFormat; ?></p>
+        <div class="obj-container">
+            <p><span>Je sousigné <?= $user->lastname; ?> <?= $user->firstname; ?> reconnaît avoir lu, compris et accepté les termes de cet Engagement Personnel envers les Objectifs Fixés.</span></p>
+            <p>Date: le <?= $aujourdhuiFormat; ?></p>
+        </div>
         <br>
-        <input type="submit" value="Signer" name="valider" class="btn btn-succes">
+        <input type="submit" value="Signer" name="valider" class="btn btn-succes btn-margin-left">
     </form>
     <br><br>
-</div>
+    </div>
+</section>
 <?php include('./footer.php'); ?>

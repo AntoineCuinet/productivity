@@ -82,7 +82,7 @@ $description_page = 'Cookies';
                     mise à jour.</p>
                 <br>
 
-                <a class="btn" href="../../index.php">Retour sur le site</a>
+                <a class="btn btn-margin-left" href="../../index.php">Retour sur le site</a>
                 
                 <br><br><br><br>
         </div>

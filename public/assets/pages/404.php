@@ -28,7 +28,7 @@ $description_page = '404';
                 <br>
                 <p>Il n'y a rien à voir ici... </p>
                 <br>
-                <a class="btn" href="../../index.php">Retour sur le site</a>
+                <a class="btn btn-margin-left" href="../../index.php">Retour sur le site</a>
             </div>
             <br><br><br><br><br>
         </div>

@@ -96,7 +96,7 @@ $description_page = 'Mentions légales';
                     <a href="mailto:tristan.amiotte-suchet@edu.univ-fcomtefr">contact@kirsao.fr</a>.</p>
                 <br><br>
 
-                <a class="btn" href="../../index.php">Retour sur le site</a>
+                <a class="btn btn-margin-left" href="../../index.php">Retour sur le site</a>
                 
                 <br><br><br><br>
         </div>

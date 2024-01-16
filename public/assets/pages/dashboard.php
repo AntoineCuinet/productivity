@@ -52,7 +52,7 @@ function joursPrecedents() {
         'Sun' => 'Dim',
     ];
 
-    $aujourdhui = new DateTime();
+    $aujourdhui = new DateTime('now', new DateTimeZone('Europe/Paris'));
     $aujourdhuiFormat = $joursFrancais[$aujourdhui->format('D')] . '. ' . $aujourdhui->format('d-m-Y');
 
     $joursPrecedents = array();
@@ -227,7 +227,8 @@ $jsonData = json_encode($data);
         <!-- affichage notes -->
         <div class="todolist">
         <?php 
-            $today = new DateTime();
+            $today = new DateTime('now', new DateTimeZone('Europe/Paris'));
+
             $lastNoteDay = (count($notes) > 0) ? substr($notes[0]->create_at, 0, 10) : '';
 
             if ($today->format('Y-m-d') !== $lastNoteDay) {

@@ -21,7 +21,7 @@ $joursFrancais = [
     'Sat' => 'Samedi',
     'Sun' => 'Dimanche',
 ];
-$aujourdhui = new DateTime();
+$aujourdhui = new DateTime('now', new DateTimeZone('Europe/Paris'));
 $day = 'Note du '. $joursFrancais[$aujourdhui->format('D')] . ' ' . $aujourdhui->format('d-m-Y');
 
 

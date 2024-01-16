@@ -194,12 +194,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="submit" value="Modifier" name="valider" class="btn btn-login">
             </form>
 
-            <br>
+            <br><br>
             <div class="redirect-lien">
                 <p><a href="password.php">Modifier mon mot de passe.</a></p>
             </div>
             
-            <br>
+            <br><br>
             <a href="./logout.php" class="btn btn-danger delate">Déconnexion</a>
             <br>
             <a onclick="return confirm('Confirmer la suppression de votre compte ?');" href="delate.php" class="btn btn-danger delate">Supprimer mon compte.</a>

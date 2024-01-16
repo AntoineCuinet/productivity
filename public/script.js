@@ -1,6 +1,13 @@
 /* 'as' permet de changer le nom, nomDefault est l'export par défaut                                */
 /* Ceci permet d'inporter ici les fichiers necessaires afin de couper le code en plusieurs fichiers */
 //import nomDefault, {nomExport1 as newName, nomExport2} from "./assets/scripts/nomFichier.js"
+function isDashboardPage() {
+    const url = window.location.href;
+    const target = "dashboard.php";
+    
+    // Vérifie si l'URL se termine par "dashboard.php"
+    return url.slice(-target.length) === target;
+}
 
 window.addEventListener("load", function () {
 
@@ -205,92 +212,112 @@ suptodochecks.forEach(suptodocheck => {
 
 
 //test graphique 
-// Préparer les labels et les données pour Chart.js
-jsonData.reverse();
-var labels = jsonData.map(function(entry) {
-    return entry.jour;
-});
+if (isDashboardPage()) {
+    // Préparer les labels et les données pour Chart.js
+    jsonData.reverse();
+    var labels = jsonData.map(function(entry) {
+        return entry.jour;
+    });
 
-var data = jsonData.map(function(entry) {
-    return entry.poids;
-});
+    var data = jsonData.map(function(entry) {
+        return entry.poids;
+    });
 
-// Créer le graphique avec Chart.js
-const moyennePoids = data.reduce((acc, poids) => acc + poids, 0) / data.length;
-const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: labels,
-        datasets: [{
-            label: 'Suivie de poids (Kg)',
-            data: data,
-            fill: true,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-            tension: 0.1,
-            pointBackgroundColor: 'rgba(75, 192, 192, 1)'
-        }]
-    },
-    options: {
-        plugins: {
-            legend: {
-                labels: {
-                    color: '#c0c0c0'
-                }
-            }
+    // Créer le graphique avec Chart.js
+    const moyennePoids = data.reduce((acc, poids) => acc + poids, 0) / data.length;
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Suivie de poids (Kg)',
+                data: data,
+                fill: true,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                tension: 0.1,
+                pointBackgroundColor: 'rgba(75, 192, 192, 1)'
+            }]
         },
-        scales: {
-            y: {
-                ticks: {
-                    color: '#c0c0c0'
-                },
-                grid: {
-                    color: '#c0c0c036'
-                },
-                //beginAtZero: true,
-                suggestedMin: moyennePoids - 10,
-                suggestedMax: moyennePoids + 10
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#c0c0c0'
+                    }
+                }
             },
-            x: {
-                ticks: {
-                    color: '#c0c0c0'
+            scales: {
+                y: {
+                    ticks: {
+                        color: '#c0c0c0'
+                    },
+                    grid: {
+                        color: '#c0c0c036'
+                    },
+                    //beginAtZero: true,
+                    suggestedMin: moyennePoids - 10,
+                    suggestedMax: moyennePoids + 10
                 },
-                grid: {
-                    color: '#c0c0c036' 
+                x: {
+                    ticks: {
+                        color: '#c0c0c0'
+                    },
+                    grid: {
+                        color: '#c0c0c036' 
+                    }
                 }
-            }
-        },
-        elements: {
-            point: {
-                pointBorderColor: 'rgba(75, 192, 192, 1)'
+            },
+            elements: {
+                point: {
+                    pointBorderColor: 'rgba(75, 192, 192, 1)'
+                }
             }
         }
-    }
-});
+    });
+}
 
 
 
 
 //time
-const textHome = document.querySelector(".text-time-home");
+if (isDashboardPage()) {
+    const textHome = document.querySelector(".text-time-home");
 
-function getCurrentTime() {
-    const now = new Date();
-    const currentTime = now.toLocaleTimeString();
+    function getCurrentTime() {
+        const now = new Date();
 
-    textHome.innerText = `${currentTime}`;
-    if (window.location.href.endsWith("./assets/pages/dashboard.php")) {
-        // Vous pouvez également mettre à jour le texte ici si nécessaire
-        //textHome.innerText = `${days}j ${hours}h ${minutes}m ${seconds}s`;
+        const options = { hour: '2-digit', minute: '2-digit' };
+        const currentTime = now.toLocaleTimeString(undefined, options);
+
+        textHome.innerText = `${currentTime}`;
+        //
+            // Vous pouvez également mettre à jour le texte ici si nécessaire
+            //textHome.innerText = `${days}j ${hours}h ${minutes}m ${seconds}s`;
+        //}
     }
+
+    getCurrentTime();
+
+
+    const currentTimeInterval = setInterval(() => {
+        getCurrentTime();
+    }, 1000);
 }
 
-getCurrentTime();
-const currentTimeInterval = setInterval(() => {
-    getCurrentTime();
-}, 1000);
+});
 
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('textarea').forEach(el => {
+        el.style.height = el.scrollHeight + 'px';
+        el.classList.add('auto');
+        el.addEventListener('input', e => {
+            el.style.height = 'auto';
+            el.style.height = (el.scrollHeight) + 'px';
+        });
+    });
 });

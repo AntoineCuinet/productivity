@@ -1,0 +1,9 @@
+.obj-container {
+    padding: 30px 10%;
+    text-align: justify;
+
+    @media screen and (max-width: $mq) {
+        font-size: $KS-font-tiny;
+        padding: 20px 10%;
+    }
+}

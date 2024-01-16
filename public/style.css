@@ -57,7 +57,8 @@ body .contenu {
   transform: translateY(-50px);
 }
 .section .section-container .h1 h1 {
-  font-size: 20vw;
+  font-size: 15vw;
+  text-align: center;
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
   background-clip: text;
@@ -73,8 +74,7 @@ body .contenu {
 }
 @media (min-width: 800px) {
   .section .section-container .h1 h1 {
-    font-size: 150px;
-    transform: translateY(-20px);
+    font-size: 130px;
   }
 }
 .section .section-container p {
@@ -95,6 +95,7 @@ body .contenu {
   color: #9fc8b9;
 }
 .section .section-container h2 {
+  padding: 30px 10%;
   position: relative;
   z-index: 1;
   letter-spacing: 3px;
@@ -102,12 +103,13 @@ body .contenu {
 }
 .section .section-container h3,
 .section .section-container h4 {
-  text-align: left;
-  padding: 0 0 0 15px;
+  padding: 20px 5%;
+  text-align: justify;
   font-weight: bold;
 }
 .section .section-container h4 {
   padding: 0 0 0 30px;
+  text-align: left;
 }
 .section .section-container img {
   user-select: none;
@@ -722,6 +724,10 @@ body .contenu {
   background: #092635;
 }
 
+.btn-margin-left {
+  margin-left: 30px;
+}
+
 .card a {
   width: 50px;
   height: 150px;
@@ -878,7 +884,7 @@ body .contenu {
 }
 .dashboard-container .dashboard-init .time .text-time-home {
   font-family: "Gemunu Libre", sans-serif;
-  font-size: 90px;
+  font-size: 130px;
 }
 .dashboard-container .dashboard-aera {
   display: grid;
@@ -892,17 +898,22 @@ body .contenu {
 }
 .textaera-container .textarea {
   resize: none;
-  border: 2px solid #FFFFF0;
+  outline: none;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: #333;
+  color: #c0c0c0;
+  font-family: Arial, Courier, monospace;
   width: 90%;
-  height: 300px;
+  height: auto;
   border-radius: 15px;
   padding: 10px;
 }
-.textaera-container .textarea textarea:invalid {
-  border: 2px dashed red;
+.textaera-container .textarea:invalid {
+  border: 2px dashed #a03e3e;
 }
-.textaera-container .textarea textarea:valid {
-  border: 2px solid lime;
+.textaera-container .textarea:valid {
+  border: 2px solid #9fc8b9;
 }
 
 .note-of-the-day .form {
@@ -1208,6 +1219,17 @@ body .contenu {
 .fade-out {
   opacity: 0;
   transition: opacity 0.5s ease-out; /* Utilisez la propriété de transition pour définir la durée, le timing et le type d'animation */
+}
+
+.obj-container {
+  padding: 30px 10%;
+  text-align: justify;
+}
+@media screen and (max-width: 800px) {
+  .obj-container {
+    font-size: 12px;
+    padding: 20px 10%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

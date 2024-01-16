@@ -4,18 +4,24 @@
 
     .textarea {
         resize: none;
-        border: 2px solid $KS-color-white;
+        outline: none;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        background-color: $KS-color-font-light;
+        color: $KS-color-font-dark;
+        font-family: Arial, Courier, monospace;
+        //border: 2px solid $KS-color-white;
         width: 90%;
-        height: 300px;
+        height: auto;
         border-radius: 15px;
         padding: 10px;
 
-        textarea:invalid {
-            border: 2px dashed red;
+        &:invalid {
+            border: 2px dashed $KS-color-danger;
         }
         
-        textarea:valid {
-            border: 2px solid lime;
+        &:valid {
+            border: 2px solid $KS-color-tertiary;
         }
     }
 }
