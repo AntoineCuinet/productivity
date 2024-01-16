@@ -74,9 +74,14 @@
             }
         }
     }
+}
 
-    .copyright {
-        display: flex;
-        justify-content: center;
-    }
+.copyright-hr {
+    flex-shrink: 0;
+    border: 0.1px dashed $KS-color-font-dark;
+}
+.copyright {
+    // position: absolute;
+    display: flex;
+    justify-content: center;
 }

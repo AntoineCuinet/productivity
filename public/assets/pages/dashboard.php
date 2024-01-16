@@ -299,7 +299,7 @@ $jsonData = json_encode($data);
                     foreach ($routines as $routine) {
                         $recursivity = $routine->recursivity;
                         $currentDay = date('N');
-                        $inverse = 5 - $i;
+                        $inverse = 7 - $i;
                         $inverseCurrentDay = 8 - $currentDay +1;
 
                         $cycleValue = ($inverseCurrentDay + $inverse + 8) % 7 +1;

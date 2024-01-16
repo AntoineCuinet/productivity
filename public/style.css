@@ -218,7 +218,13 @@ body .contenu {
 .footer-index .contenu-footer .bloc ul li a:hover {
   color: #011223;
 }
-.footer-index .copyright {
+
+.copyright-hr {
+  flex-shrink: 0;
+  border: 0.1px dashed #c0c0c0;
+}
+
+.copyright {
   display: flex;
   justify-content: center;
 }
