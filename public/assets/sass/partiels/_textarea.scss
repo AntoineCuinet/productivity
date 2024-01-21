@@ -16,6 +16,10 @@
         border-radius: 15px;
         padding: 10px;
 
+        &:focus {
+            box-shadow: 0 0 5px $KS-color-tertiary; /* Ajoutez l'ombre lorsqu'en focus */
+        }
+
         &:invalid {
             border: 2px dashed $KS-color-danger;
         }

@@ -909,6 +909,9 @@ body .contenu {
   border-radius: 15px;
   padding: 10px;
 }
+.textaera-container .textarea:focus {
+  box-shadow: 0 0 5px #9fc8b9; /* Ajoutez l'ombre lorsqu'en focus */
+}
 .textaera-container .textarea:invalid {
   border: 2px dashed #a03e3e;
 }

@@ -33,15 +33,17 @@ $currentScript = basename($_SERVER['SCRIPT_FILENAME']);
                 </a>
                 <?php else: ?>
                     <?php if ($currentScript !== 'dashboard.php'): ?>
-                        <div class="link-head-dashboard"><a href="./dashboard.php">Mon espace</a></div>
+                        <div class="navlinks-container"><a href="./dashboard.php">Mon espace</a></div>
                     <?php else: ?>
-                        <div class="link-head-dashboard"><a class="" href="dashboard.php">Général</a></div>
-                        <div class="link-head-dashboard"><a href="dashboard.php">Poids</a></div>
+                        <div class="navlinks-container">
+                            <a class="" href="dashboard.php">Général</a>
+                            <a href="dashboard.php">Poids</a>
                         <?php
                         foreach($routines as $routine) {
-                            echo '<div class="link-head-dashboard"><a href="dashboard.php">'. $routine->title .'</a></div>';
-                        } 
-                    endif; ?>
+                            echo '<a href="dashboard.php">'. $routine->title .'</a>';
+                        } ?>
+                        </div>
+                    <?php endif; ?>
                 <?php endif; ?>
 
                 <!-- hamburger -->
